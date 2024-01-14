@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    
+    background-color: #EFE6D4;
 }
 
 .content{
@@ -14,30 +14,45 @@ body {
 
 
 header {
-    background-color: #333;
+    background-color: #FFFFFF;
     color: white;
-    padding: 20px;
     text-align: left;
     /*display: flex;*/
     /*align-items: center;*/
-}
-header img {
-    margin-right: 10px;
-}
-h1 {
-    font-family: "Snippet", sans-serif;
+    font-family: 'Roboto Flex', sans-serif;
+    font-family: 'Snippet', sans-serif;
 }
 
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.site-header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+h1 {
+    font-family: "Snippet", sans-serif;
+    font-size: 64px;
+    color: #413B3B;
+}
+
+
 nav {
-    background-color: #f2f2f2;
     /*display: flex;*/
     /*justify-content: space-between;*/
     padding: 20px;
     overflow: hidden;
+    margin-left: auto
 }
 nav a {
     color: #333;
-    font-size: 20px;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 36px;
     text-decoration: none;
     margin: 0 10px;
     float: left;
