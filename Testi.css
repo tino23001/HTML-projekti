@@ -3,6 +3,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #EFE6D4;
+    padding-top: 80px; /* Säädä tarvittaessa headerin korkeuden mukaan, 
+    VAIKUTTAA MUNAKUVAAN */
 }
 
 .content{
@@ -12,54 +14,53 @@ body {
     margin-bottom: 20px;
 }
 
-
-header {
-    background-color: #FFFFFF;
-    color: white;
-    text-align: left;
-    /*display: flex;*/
-    /*align-items: center;*/
-    font-family: 'Roboto Flex', sans-serif;
-    font-family: 'Snippet', sans-serif;
-}
-
 .site-header {
+    position: fixed; /* Pitää headerin yläreunassa*/
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+}
 
 .site-header__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+    width: 100%; /* Lisätty, jotta sisältö ulottuu koko leveydelle */
+}
 
-h1 {
+h1 a {
     font-family: "Snippet", sans-serif;
     font-size: 64px;
     color: #413B3B;
+    text-decoration: none;
 }
-
 
 nav {
-    /*display: flex;*/
-    /*justify-content: space-between;*/
-    padding: 20px;
-    overflow: hidden;
-    margin-left: auto
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Siirtää navin oikeaan reunaan */
 }
+
 nav a {
     color: #333;
     font-family: 'Roboto Flex', sans-serif;
     font-size: 36px;
     text-decoration: none;
-    margin: 0 10px;
-    float: left;
+    margin-left: 15px;
 }
+
 nav a:hover {
     color: #666;
 }
+
+
+
+
 section {
     /*display: flex;*/
     /*flex-wrap: wrap;*/
@@ -88,25 +89,16 @@ img {
     /*margin-left: 40%; /* Säädä tätä prosenttiosuutta siirtääksesi kuvaa vasemmalle */
     /*margin-right: auto;*/
 }
-.tekstipalsta h2 {
-    font-family: "Roboto", sans-serif;
-    margin-top: 25%;
-    align-items: center;
-    margin-left: 8%;
-    color: #695858;
-}
-.tekstipalsta p {
+.tekstipalsta  {
     font-family: "Roboto", sans-serif;
     font-size: 20px;
     display: flex;
-    /*align-items: center;*/
+    align-items: center;
     flex: 1;
-    max-width: 400px;
-    padding-top: 20px;
-    padding-left: 8%;
+    max-width: 500px;
+    padding: 40px;
     height: auto;
     box-sizing: border-box;
-    color: #121111;
 }
 
 
