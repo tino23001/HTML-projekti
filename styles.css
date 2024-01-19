@@ -113,11 +113,14 @@ nav a:hover {
 }
 
 .contact-info, .contact-form {
-    background-color: #EFE6D4e;
+    background-color: #EFE6D4;
     padding: 20px;
     border-radius: 5px;
-    margin-top: 200px;
+    margin-top: 150px;
     width: 50%;
+    color: #695858;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 22px;
     
     
 }
@@ -138,10 +141,10 @@ nav a:hover {
 }
 
 .contact-form input, .contact-form textarea, .contact-form button {
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-bottom: 15px;
+    padding: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 7px;
 }
 
 .contact-form button {
