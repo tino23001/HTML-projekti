@@ -59,11 +59,41 @@ nav a:hover {
     max-width: 400px;
     margin-right: auto;
     margin-top: 20%;
-    margin-left: 15%;
+    margin-left: 10%;
     float: left;
 }
+/*KAUPPA*/
+storepage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+  }
+.item {
+    border-radius: 15px;
+    border: 4px solid #000000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+    margin-top: 10px;
+    margin-bottom: 90px;
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    font-family: 'Source Sans 3', sans-serif;
+  }
 
-
+  .item img {
+    max-width: 100%;
+    height: auto;
+  }
+  .flex-kauppa {
+    margin: 10px;
+    padding-bottom: 2em;
+    padding-top: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 
