@@ -140,6 +140,31 @@ form input[type="submit"]:hover {
     background-color: #666;
 
 
+    body, html {
+        background-color: #f0e4d7; /* Vaihda haluamaksesi väriksi */
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      
+      .text-right .text-content {
+        text-align: right; /* Asettaa tekstin oikeaan reunaan */
+      }
+      
+      /* Varmistetaan, että sisältö on keskellä ja teksti on oikealla */
+      @media (min-width: 992px) {
+        .align-items-center {
+          height: 100vh; /* Keskuskelu vertikaalisesti koko sivun korkeudelle */
+        }
+      }
+      
+      /* Bootstrap-sarakkeiden marginaalit voivat aiheuttaa kuvan olla keskitetty, joten poistetaan ne */
+      .row > [class^="col-"] {
+        padding: 0;
+      }
+      
+
+
 }
 footer {
     position: fixed;
