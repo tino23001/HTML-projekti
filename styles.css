@@ -1,11 +1,8 @@
-
-body, html {
-    font-family: Arial, sans-serif;
+body {
+    font-family: 'Roboto Flex', 'Source Sans 3', sans-serif;
+    background-color: #EFE6D4;
     margin: 0;
     padding: 0;
-    background-color: #EFE6D4;
-    padding-top: 80px; /* Säädä tarvittaessa headerin korkeuden mukaan, 
-    VAIKUTTAA MUNAKUVAAN */
 }
 
 .site-header {
@@ -142,13 +139,6 @@ storepage {
 
 
   /*YHTEYSTIEDOT*/
-  body {
-    font-family: 'Roboto Flex', 'Source Sans 3', sans-serif;
-    background-color: #EFE6D4;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
 
 .contact-container {
     display: flex;

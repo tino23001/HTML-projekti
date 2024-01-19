@@ -1,16 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto Flex', 'Source Sans 3', sans-serif;
+    background-color: #EFE6D4;
     margin: 0;
     padding: 0;
-    background-color: #EFE6D4;
-    padding-top: 20px; /* Säädä tarvittaessa headerin korkeuden mukaan, 
-    VAIKUTTAA MUNAKUVAAN */
-    /*etusivulle tausta
-    background-image: url('munatausta.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: -250px; 
-    */
 }
 
 .content{
@@ -224,13 +216,6 @@ footer:before {
 }
 
  /*YHTEYSTIEDOT*/
- body {
-    font-family: 'Roboto Flex', 'Source Sans 3', sans-serif;
-    background-color: #EFE6D4;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
 
 .contact-container {
     display: flex;
