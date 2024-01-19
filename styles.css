@@ -85,6 +85,8 @@ storepage {
   .item img {
     max-width: 100%;
     height: auto;
+    border: 2px solid #9B968E;
+    border-radius: 10px;
   }
   .flex-kauppa {
     margin: 10px;
