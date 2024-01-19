@@ -3,12 +3,14 @@ body {
     margin: 0;
     padding: 0;
     background-color: #EFE6D4;
-    padding-top: 20px;
+    padding-top: 20px; /* Säädä tarvittaessa headerin korkeuden mukaan, 
+    VAIKUTTAA MUNAKUVAAN */
+    /*etusivulle tausta
     background-image: url('munatausta.png');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-y: -250px; /* Säädä tarvittaessa headerin korkeuden mukaan, 
-    VAIKUTTAA MUNAKUVAAN */
+    background-position-y: -250px; 
+    */
 }
 
 .content{

@@ -52,7 +52,16 @@ nav a:hover {
     color: #666;
 }
 
-
+/*ETUSIVU*/
+.texti  {
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 20px;
+    max-width: 400px;
+    margin-right: auto;
+    margin-top: 20%;
+    margin-left: 15%;
+    float: left;
+}
 
 
 
