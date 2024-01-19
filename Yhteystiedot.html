@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lohikärmes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&family=Snippet&family=Source+Sans+3&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined', sans-serif;
+            font-size: 2em; /* Voit säätää fonttikokoa tarpeidesi mukaan */
+        }
+    </style>    
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="site-header__wrapper">
+            <h1><a href="Etusivu.html">LOHIKÄRMES</a></h1>
+            <nav class="nav">
+                <a href="Etusivu.html">ETUSIVU</a>
+                <a href="Kauppa.html">KAUPPA</a>
+                <a href="Ohjeet.html">OHJEET</a>
+                <a href="Yhteystiedot.html"><b>YHTEYSTIEDOT</b></a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact-container">
+        <section class="contact-info">
+            <h2>Ota yhteyttä</h2>
+            <div class="info">
+                <span class="material-symbols-outlined">phone</span>
+                <p>Puhelin<br>040 1234567</p>
+            </div>
+            <div class="info">
+                <span class="material-symbols-outlined">location_on</span>
+                <p>Osoite<br>Lohikäärmekatu 1<br>00000 Hämeenlinna</p>
+            </div>
+            <div class="info">
+                <span class="material-symbols-outlined">schedule</span>
+                <p>Aukioloajat<br>ma-pe 10-24<br>la 10-18</p>
+            </div>
+        </section>
+        
+        <section class="contact-form">
+            <form action="submit_form.php" method="post">
+                <h2>Yhteydenottolomake</h2>
+                <input type="text" id="first-name" name="first_name" placeholder="Etunimi" required>
+                <input type="text" id="last-name" name="last_name" placeholder="Sukunimi" required>
+                <input type="email" id="email" name="email" placeholder="Sähköpostiosoite" required>
+                <textarea id="message" name="message" placeholder="Viestisi" required></textarea>
+                <button type="submit">Lähetä</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© Lohikärmes 2024</p>
+    </footer>
+    
+    
+</body>
+</html>

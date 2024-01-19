@@ -93,3 +93,88 @@ nav a:hover {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 20px;
   }
+
+  
+
+
+  /*YHTEYSTIEDOT*/
+  body {
+    font-family: 'Roboto Flex', 'Source Sans 3', sans-serif;
+    background-color: #EFE6D4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-evenly; 
+    padding: 30px 25%;
+}
+
+.contact-info, .contact-form {
+    background-color: #EFE6D4e;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 200px;
+    width: 50%;
+    
+    
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.info p {
+    margin-left: 10px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input, .contact-form textarea, .contact-form button {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #7A746B; 
+    text-align: center;
+    color: #413B3B;
+    padding-top: 10px;
+}
+
+footer:before {
+    content: '';
+    display: block;
+    height: 5px; 
+    background-color: #9B968E; 
+    width: 100%;
+    position: absolute;
+    top: -5px;
+}
+
+
+@media (max-width: 768px) {
+    .contact-info, .contact-form {
+        width: 100%; /* pienillä näytöillä elementit vievät koko leveyden */
+        margin-bottom: 20px; /* lisää välimatkaa elementtien välille */
+    }
+}
