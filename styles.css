@@ -128,6 +128,7 @@ storepage {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 60px;
 }
   
 .flex-container6 > div {
@@ -208,6 +209,7 @@ footer {
     max-width: 1200px; 
     margin: auto;
     flex: 1;
+    
 }
 
 .footer-section {
