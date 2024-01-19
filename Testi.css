@@ -163,10 +163,13 @@ footer:before {
 }
 
 /*OHJEETSIVU*/
-.section_ohjeet {
+.flex-ohjeet {
     margin: 10px;
     padding-bottom: 2em;
-    padding-top: 6em;
+    padding-top: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
     
 .otsikko_muotoilu {
@@ -174,14 +177,13 @@ footer:before {
     font-size: 40px;
     color: #695858;
     margin:12px 4px;
-    text-align: center;
-    }
+}  
 
 .flex-container6 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-  }
+}
   
 .flex-container6 > div {
     background-color: #f1f1f1;
@@ -194,7 +196,7 @@ footer:before {
     text-align: center;
     font-family: 'Source Sans 3', sans-serif;
     font-size: 20px;
-  }
+}
 
  /*YHTEYSTIEDOT*/
  body {
