@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
+
 <body class="body-etusivu">
     <header class="site-header">
         <div class="site-header__wrapper">
             <h1><a href="Etusivu.html">LOHIKÄRMES</a></h1>
+            <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
             <nav class="nav">
                 <a href="Etusivu.html"><b>ETUSIVU</b></a>
                 <a href="Kauppa.html">KAUPPA</a>
@@ -72,5 +74,20 @@
         </div>
     </footer>
 
+    <script>
+       function toggleMenu() {
+    var nav = document.querySelector('nav');
+    var menuIcon = document.querySelector('.menu-icon');
+
+    if (nav.style.display === 'block') {
+        nav.style.display = 'none';
+        menuIcon.setAttribute('aria-label', 'Avaa valikko');
+    } else {
+        nav.style.display = 'block';
+        menuIcon.setAttribute('aria-label', 'Sulje valikko');
+    }
+}
+
+    </script>
 </body>
 </html>

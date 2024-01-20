@@ -356,17 +356,23 @@ footer:before {
     nav {
         display: none; /* Piilota normaali navigaatio */
         flex-direction: column; /* Aseta flex-suunta pystyyn */
-        align-items: flex-end; /* Aseta sisältö oikeaan reunaan */
+        align-items: flex-start; /* Aseta sisältö oikeaan reunaan */
         position: absolute;
         top: 100%; /* Aseta valikon alareunaan */
         right: 0;
         background-color: #f8f8f8;
         width: 100%;
-        padding: 1em;
+        padding: 0,5em;
     }
 
     nav a {
         margin: 0.5em 0;
+        display: block;
+        margin: 0.5em 0;
+        padding: 0.1em;
+        white-space: nowrap;
+        overflow: hidden; 
+        font-size: 7vw;
     }
 
     .menu-icon {
