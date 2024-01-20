@@ -258,6 +258,25 @@ footer:before {
     height: 30px;
 }
 
+.social-media-links a {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 5px; 
+    text-decoration: none; 
+    color: #fff; 
+}
+
+.social-media-links a:hover {
+    text-decoration: underline; 
+}
+
+.social-media-links .social-icon {
+    width: 24px; 
+    height: auto; 
+    margin-right: 8px; 
+}
+
+
 /* Responsiivinen muotoilu pienille näytöille */
 @media (max-width: 768px) {
     .footer-container {
@@ -369,7 +388,7 @@ footer:before {
         right: 0;
         background-color: #f8f8f8;
         width: 100%;
-        padding: 0.1em;
+        
     }
 
     nav a {
