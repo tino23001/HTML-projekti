@@ -407,4 +407,83 @@ footer:before {
         font-size: 24px;
         margin-right: 1em;
     }
+
+    /* FOOTER, KESKEN */
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .footer-section {
+        /* Tämä varmistaa, että jokainen osio on keskitetty ja vie koko saatavilla olevan leveyden */
+        width: 100%;
+        text-align: center;
+        margin: 10px 0; /* Lisää hieman tilaa osioiden väliin */
+        box-sizing: border-box;
+    }
+
+    .footer-section a,
+    .footer-section p {
+        /* Tekstien ja linkkien tyylimäärittelyt, kuten fonttikoko ja värit */
+        font-size: 14px; /* Pienempi fonttikoko pienille näytöille */
+    }
+    .social-media-links a {
+    justify-content: center; /* Tämä keskittää sisällön, mutta varmista ettei se työnnä ulos */
+    display: flex;
+    align-items: center;
+    margin: 0 auto; /* Keskittää, mutta varmista ettei se työnnä ulos */
+    box-sizing: border-box; /* Varmista tämä */
+}
+
+    .social-media-links .social-icon {
+        /* Säilytä kuvakkeiden koko mutta varmista, että ne ovat keskitetty */
+        margin: 0 5px; /* Säädä välimatkaa tarpeen mukaan */
+    } 
+
+
+    
+    /* YHTEYSTIEDOT, KESKEN */
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 10px; /* Lisää tarvittaessa paddingia sivuille, mutta ei liikaa */
+    }
+
+    .contact-info, .contact-form {
+        width: 100%; /* Asettaa leveydeksi 100% mobiililaitteilla */
+        box-sizing: border-box; /* Varmistaa, että padding ei kasvata leveyttä */
+        margin-bottom: 20px; /* Lisää välimatkaa alaosaan */
+    }
+    .contact-form {
+        margin-top: 0; /* Vähennä tai poista ylimääräinen marginaali yläpuolelta */
+        /* Muut säännöt */
+    }
+
+    .contact-info .info,
+    .contact-form form {
+        flex-direction: column; /* Asettaa elementit pystysuoraan */
+        align-items: center; /* Keskittää elementit */
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+        width: calc(100% - 20px); /* Vähentää 10px paddingia molemmilta puolilta */
+        margin-bottom: 10px; /* Lisää välimatkaa elementtien välille */
+    }
+
+    /* Keskittää otsikot, kuvakkeet ja tekstisisällön */
+    .contact-info h2, .contact-form h2 {
+        text-align: center;
+    }
+
+    .material-symbols-outlined {
+        /* Vähennetään ikonien kokoa, jos ne ovat liian suuria mobiililaitteilla */
+        font-size: 1.5em;
+    }
+
+
 }
