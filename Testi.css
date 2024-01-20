@@ -5,6 +5,13 @@ body {
     padding: 0;
 }
 
+.body-etusivu {
+    background-image: url('munatausta.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -250px; 
+}
+
 .content{
     margin: auto;
     max-width: 80%;

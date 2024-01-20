@@ -55,6 +55,13 @@ nav a:hover {
 
 
 /*ETUSIVU*/
+.body-etusivu {
+    background-image: url('munatausta.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -250px; 
+}
+
 .texti  {
     font-family: "Source Sans 3", sans-serif;
     font-size: 20px;
@@ -128,7 +135,7 @@ storepage {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 60px;
+    padding-bottom: 4em;
 }
   
 .flex-container6 > div {
@@ -209,7 +216,6 @@ footer {
     max-width: 1200px; 
     margin: auto;
     flex: 1;
-    
 }
 
 .footer-section {
@@ -303,7 +309,46 @@ footer:before {
     margin: 0;
 }
 
+
+
+
+
+
 @media only screen and (max-width: 768px) { /*KESKEN!!!!*/
+
+    /*ETUSIVU*/
+    .body-etusivu {
+        background-image: url('munatausta.png');
+        background-repeat: no-repeat;
+        height: 10px;
+        background-position: left;
+    }
+    
+    h1 a {
+        margin: 0;
+        font-family: "Snippet", sans-serif;
+        font-size: 12vw;
+        color: #413B3B;
+        text-decoration: none;
+    }
+    .otsikko_muotoilu {
+        font-family: 'Source Sans 3', sans-serif;
+        font-size: 9.2vw;
+        color: #695858;
+        margin:12px 4px;
+        padding-top: 1.5em;
+    }
+    .texti  {
+        font-family: "Source Sans 3", sans-serif;
+        font-size: 6vw;
+        margin-top: 20%;
+        margin-left: 10%;
+        margin-right: 30%;
+        float: left;
+    }
+
+    /*HEADERI* joka on ihan kesken*/
+
     .site-header__wrapper {
         padding-left: 1em; /* Pienempi sisennys pienemmällä näytöllä */
     }
