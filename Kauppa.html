@@ -19,6 +19,7 @@
     <header class="site-header">
         <div class="site-header__wrapper">
             <h1><a href="Etusivu.html">LOHIKÄRMES</a></h1>
+            <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
             <nav class="nav">
                 <a href="Etusivu.html">ETUSIVU</a>
                 <a href="Kauppa.html"><b>KAUPPA</b></a>
@@ -139,7 +140,7 @@
                 <h4>Asiakaspalvelu</h4>
                
                 <p><strong>Puhelin:</strong> <a href="tel:+358201234567">+358 20 123 4567</a></p>
-                <p><strong>Sähköposti:</strong> <a href="mailto:info@lohikärmes.fi">info@lohikarmes.fi</a></p>
+                <a href="Yhteystiedot.html">Yhteydenottolomake</a></p>
             </div>
             <div class="footer-section">
                 <h4>Info</h4>
@@ -173,5 +174,20 @@
         </div>
     </footer>
     
+    <script>
+      function toggleMenu() {
+   var nav = document.querySelector('nav');
+   var menuIcon = document.querySelector('.menu-icon');
+
+   if (nav.style.display === 'block') {
+       nav.style.display = 'none';
+       menuIcon.setAttribute('aria-label', 'Avaa valikko');
+   } else {
+       nav.style.display = 'block';
+       menuIcon.setAttribute('aria-label', 'Sulje valikko');
+   }
+}
+   </script>
+
 </body>
 </html>

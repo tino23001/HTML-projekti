@@ -53,6 +53,13 @@ nav a:hover {
     color: #666;
 }
 
+.menu-icon {
+    display: none; /* Piilota hampurilaisikoni oletuksena */
+    cursor: pointer;
+    font-size: 24px;
+    margin-right: 1em;
+}
+
 
 /*ETUSIVU*/
 .body-etusivu {
@@ -362,7 +369,7 @@ footer:before {
         right: 0;
         background-color: #f8f8f8;
         width: 100%;
-        padding: 0,5em;
+        padding: 0.1em;
     }
 
     nav a {
