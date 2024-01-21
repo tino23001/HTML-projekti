@@ -96,9 +96,9 @@ storepage {
     border: 4px solid #000000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 5px;
-    margin-top: 10px;
-    margin-bottom: 90px;
-    padding: 30px;
+    margin-top: 5px;
+    margin-bottom: 60px;
+    padding: 20px;
     width: 300px;
     text-align: center;
     font-family: 'Source Sans 3', sans-serif;
@@ -336,7 +336,15 @@ footer:before {
     margin: 0;
 }
 
-
+/*Kauppasivu testi*/
+@media (max-width: 768px) {
+    .flex-kauppa {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 10px;
+    }
+}
 
 
 
@@ -420,7 +428,7 @@ footer:before {
     .footer-section {
         width: 100%;
         text-align: left;
-        padding-left: 150px;
+        padding-left: 33%;
         margin: 10px 0; 
         box-sizing: border-box;
     }
