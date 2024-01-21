@@ -27,7 +27,7 @@ body {
     width: 100%; /* Lisätty, jotta sisältö ulottuu koko leveydelle */
 }
 
-h1 a {
+.home-logo {
     margin: 0.4em;
     font-family: "Snippet", sans-serif;
     font-size: 64px;
@@ -191,7 +191,7 @@ storepage {
 /*OHJEETSIVU*/
 .flex-ohjeet {
     margin: 10px;
-    padding-bottom: 2em;
+    padding-bottom: 20px;
     padding-top: 10em;
     display: flex;
     align-items: center;
@@ -426,30 +426,32 @@ footer:before {
         background-position: left;
     }
     
-    h1 a {
-        margin: 0;
+    .home-logo {
+        margin: 3% 0%;
         font-family: "Snippet", sans-serif;
-        font-size: 12vw;
+        font-size: 45px; /* Fonttikoko suhteessa näytön leveyteen */
         color: #413B3B;
         text-decoration: none;
     }
+    
+    
     .otsikko_muotoilu {
         font-family: 'Source Sans 3', sans-serif;
-        font-size: 9.2vw;
+        font-size: 36px;
         color: #695858;
         margin:12px 4px;
-        padding-top: 1.5em;
+        padding-top: 1em;
     }
     .texti  {
         font-family: "Source Sans 3", sans-serif;
-        font-size: 6vw;
+        font-size: 16px;
         margin-top: 20%;
         margin-left: 10%;
         margin-right: 30%;
         float: left;
     }
 
-    /*HEADERI* joka on ihan kesken*/
+    /*HEADERI*/
 
     .site-header__wrapper {
         padding-left: 1em; /* Pienempi sisennys pienemmällä näytöllä */
@@ -482,6 +484,33 @@ footer:before {
         cursor: pointer;
         font-size: 24px;
         margin-right: 1em;
+    }
+
+    /*OHJEET*/
+
+    .flex-ohjeet {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10%;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    .flex-ohjeet .material-symbols-outlined {
+        display: none;
+    }
+
+
+    .otsikko_muotoilu_h2 {
+        font-family: 'Source Sans 3', sans-serif;
+        font-size: 30px;
+        color: #695858;
+        margin:12px 4px;
+        padding-top: auto;
+    }
+
+    .pikku-teksti {
+        font-size: 16px
     }
 
     /* FOOTER */
@@ -525,6 +554,10 @@ footer:before {
         flex-direction: column;
         align-items: center;
         padding: 0 10px;
+    }
+
+    .contact-info {
+        margin-top: 90px;
     }
 
     .contact-info, .contact-form {
@@ -574,7 +607,7 @@ footer:before {
         margin-top: 10px; 
     }
 
-    .contact-info h2, .contact-form h2 {
+    .contact-info h1, .contact-form h1 {
         text-align: center;
     }
 
