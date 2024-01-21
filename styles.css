@@ -428,7 +428,8 @@ footer:before {
         background-image: url('munatausta.png');
         background-repeat: no-repeat;
         height: 10px;
-        background-position: left;
+        background-position: right 20px top; 
+        
     }
     
     .home-logo {
@@ -453,8 +454,23 @@ footer:before {
         margin-top: 20%;
         margin-left: 10%;
         margin-right: 30%;
+        margin-bottom: 30%;
         float: left;
+        position: relative; /* Jos tarvitset absoluuttista sijoittelua sisäelementeille */
+        left: 10px; /* Tai haluamasi arvo */
+        z-index: 1;
     }
+
+    .top-products {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Keskitä lapset */
+        gap: 20px;
+        margin: 2rem auto;
+        padding: 0 20px;
+        margin-bottom: 50px;
+    }
+    
 
     /*HEADERI*/
 
@@ -471,6 +487,7 @@ footer:before {
         right: 0;
         background-color: #f8f8f8;
         width: 100%;
+        z-index: 1000;
         
     }
 
