@@ -65,14 +65,14 @@ nav a:hover {
 .body-etusivu {
     background-image: url('munatausta.png');
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: -250px; 
+    background-size: auto;
+    background-position-y: -90px; 
 }
 
 .texti  {
     font-family: "Source Sans 3", sans-serif;
     font-size: 20px;
-    max-width: 400px;
+    max-width: 375px;
     margin-right: auto;
     margin-top: 20%;
     margin-left: 10%;
@@ -81,7 +81,74 @@ nav a:hover {
 .tyhja-tila {
     height: 100vh; /* Aseta haluamasi korkeus, esimerkiksi 100% näytön korkeudesta */
 }
+.flex-etusivu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Lisää tarvittavia tyylejä */
+}
 
+.top-products-title {
+    /* Otsikon tyylit */
+    margin-bottom: 20px; 
+    text-align: center;
+    color: #413B3B;
+}
+
+.top-products {
+    display: flex;
+    flex-wrap: wrap; /* Mahdollistaa sisältöelementtien siirtymisen seuraavalle riville, jos tila loppuu kesken */
+    justify-content: space-around; /* Jakaa tilan elementtien välille tasaisesti */
+    align-items: flex-start; /* Asettaa elementit yläreunaan linjaan, jos ne ovat eri korkeudessa */
+    gap: 20px; /* Asettaa välin elementtien välille */
+    margin: 2rem auto; /* Asettaa ylä- ja alamarginaalin ja keskittää containerin */
+    padding: 0 20px;
+    margin-bottom: 50px;
+}
+
+.top-product-item {
+    width: 30%; /* Säätää jokaisen tuote-elementin leveyden */
+    border: 4px solid #000000; /* Muut tyylit pysyvät samoina */
+    /* ... Muut tyylit ... */
+}
+
+.top-product-item img {
+    max-width: 100%; /* Asettaa kuvan maksimileveydeksi 100% containerinsa leveydestä */
+    height: auto; /* Säilyttää kuvan mittasuhteet */
+    border-radius: 10px;
+    border: 2px solid #9B968E;
+}
+
+.top-product-item {
+    flex: 1;
+    border: 4px solid #000000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    background-color: transparent; /* Taustaväri */
+}
+
+.top-product-item img {
+    max-width: 80%; /* Pienennä kuvan kokoa */
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn-shop {
+    padding: 10px 20px;
+    background-color: #444;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px; /* Pyöristää napin reunat */
+    margin-top: 10px; /* Lisää tilaa napin yläpuolelle */
+}
+
+.btn-shop:hover {
+    background-color: #555;
+}
 
 
 /*KAUPPA*/
