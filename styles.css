@@ -190,6 +190,15 @@ storepage {
     align-items: center;
     justify-content: center;
 }
+    .item button {
+        padding: 10px 20px;
+        background-color: #444;
+        color: white;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px; /* Pyöristää napin reunat */
+    }
 
 
 
