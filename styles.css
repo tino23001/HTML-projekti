@@ -360,85 +360,17 @@ footer:before {
 
 
 /* Responsiivinen muotoilu pienille näytöille */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-section {
-        margin: 10px 0;
-    }
-}
-
-
-
-@media (max-width: 768px) {
-    .contact-info, .contact-form {
-        width: 100%; /* pienillä näytöillä elementit vievät koko leveyden */
-        margin-bottom: 20px; /* lisää välimatkaa elementtien välille */
-    }
-}
-
-  
-  .text-right .text-content {
-    text-align: right;
-    margin-left: 100px; 
-  }
-  
-  /* Varmistetaan, että sisältö on keskellä ja teksti on oikealla */
-  @media (min-width: 992px) {
-    .align-items-center {
-      height: 100vh; /* Keskuskelu vertikaalisesti koko sivun korkeudelle */
-    }
-  }
-  
-  /* Bootstrap-sarakkeiden marginaalit voivat aiheuttaa kuvan olla keskitetty, joten poistetaan ne */
-  .row > [class^="col-"] {
-    padding: 0;
-  }
-  .row > [class^="col-"] {
-    padding-right: 15px; /* Bootstrapin oletus sivutyyny */
-    padding-left: 15px; /* Bootstrapin oletus sivutyyny */
-}
-
-@media (min-width: 992px) {
-    .img-order {
-        order: 2; /* Kuvan sijoittaminen oikealle suuremmilla näytöillä */
-    }
-    .text-order {
-        order: 1; /* Tekstin sijoittaminen vasemmalle suuremmilla näytöillä */
-    }
-}
-
-/* Koko sivun levyisen taustavärin varmistaminen ilman ylimääräistä paddingia tai marginaalia */
-.container-fluid {
-    padding: 0;
-    margin: 0;
-}
-
-/*Kauppasivu testi*/
-@media (max-width: 768px) {
-    .flex-kauppa {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0 10px;
-    }
-}
-
-
 
 
 @media only screen and (max-width: 768px) { /*KESKEN!!!!*/
 
     /*ETUSIVU*/
+
     .body-etusivu {
         background-image: url('munatausta.png');
         background-repeat: no-repeat;
         height: 10px;
         background-position: right 20px top; 
-        
     }
     
     .home-logo {
@@ -449,7 +381,6 @@ footer:before {
         text-decoration: none;
     }
     
-    
     .otsikko_muotoilu {
         font-family: 'Source Sans 3', sans-serif;
         font-size: 36px;
@@ -457,6 +388,7 @@ footer:before {
         margin:12px 4px;
         padding-top: 1em;
     }
+
     .texti  {
         font-family: "Source Sans 3", sans-serif;
         font-size: 16px;
@@ -496,8 +428,7 @@ footer:before {
         right: 0;
         background-color: #f8f8f8;
         width: 100%;
-        z-index: 1000;
-        
+        z-index: 1000; 
     }
 
     nav a {
@@ -517,6 +448,17 @@ footer:before {
         margin-right: 1em;
     }
 
+
+    /*KAUPPA*/
+
+    .flex-kauppa {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+
     /*OHJEET*/
 
     .flex-ohjeet {
@@ -527,10 +469,10 @@ footer:before {
         padding-bottom: 0;
         margin-bottom: 0;
     }
+
     .flex-ohjeet .material-symbols-outlined {
         display: none;
     }
-
 
     .otsikko_muotoilu_h2 {
         font-family: 'Source Sans 3', sans-serif;
@@ -543,6 +485,7 @@ footer:before {
     .pikku-teksti {
         font-size: 16px
     }
+
 
     /* FOOTER */
 
@@ -565,6 +508,7 @@ footer:before {
         font-size: 14px; 
        
     }
+
     .social-media-links a {
         justify-content: left;
         display: flex;
@@ -577,9 +521,9 @@ footer:before {
         margin: 0 5px; 
     } 
 
-
     
    /* YHTEYSTIEDOT*/
+
     .contact-container {
         display: flex;
         flex-direction: column;
@@ -597,12 +541,13 @@ footer:before {
         box-sizing: border-box;
         margin-bottom: 20px;
     }
-
+    
     .contact-form {
         margin-top: 0; 
         margin-bottom: 50px;
         font-size: 20px;
     }
+
     .contact-form form {
         display: flex;
         flex-direction: column;
@@ -617,8 +562,7 @@ footer:before {
         padding: 0 15%; 
     }
 
-    .contact-info .info span {
-    /* Ikonien leveys */
+    .contact-info .info span {     /* Ikonien leveys */
         min-width: 40px; 
         text-align: center;
     }
@@ -635,6 +579,7 @@ footer:before {
         width: calc(100% - 20px);
         margin-bottom: 10px;
     }
+    
     .contact-form button {
         align-self: center;
         margin-top: 10px; 
