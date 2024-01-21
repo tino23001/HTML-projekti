@@ -420,7 +420,8 @@ footer:before {
     .footer-section {
         /* Tämä varmistaa, että jokainen osio on keskitetty ja vie koko saatavilla olevan leveyden */
         width: 100%;
-        text-align: center;
+        text-align: left;
+        padding-left: 150px;
         margin: 10px 0; /* Lisää hieman tilaa osioiden väliin */
         box-sizing: border-box;
     }
@@ -429,12 +430,13 @@ footer:before {
     .footer-section p {
         /* Tekstien ja linkkien tyylimäärittelyt, kuten fonttikoko ja värit */
         font-size: 14px; /* Pienempi fonttikoko pienille näytöille */
+       
     }
     .social-media-links a {
-    justify-content: center; /* Tämä keskittää sisällön, mutta varmista ettei se työnnä ulos */
+    justify-content: left; /* Tämä keskittää sisällön, mutta varmista ettei se työnnä ulos */
     display: flex;
-    align-items: center;
-    margin: 0 auto; /* Keskittää, mutta varmista ettei se työnnä ulos */
+    align-items: left;
+    margin: 10 auto; /* Keskittää, mutta varmista ettei se työnnä ulos */
     box-sizing: border-box; /* Varmista tämä */
 }
 
