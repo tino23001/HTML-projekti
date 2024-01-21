@@ -580,6 +580,7 @@ footer:before {
 
     .contact-info {
         margin-top: 90px;
+        font-size: 20px;
     }
 
     .contact-info, .contact-form {
@@ -591,6 +592,7 @@ footer:before {
     .contact-form {
         margin-top: 0; 
         margin-bottom: 50px;
+        font-size: 20px;
     }
     .contact-form form {
         display: flex;
@@ -631,6 +633,7 @@ footer:before {
 
     .contact-info h1, .contact-form h1 {
         text-align: center;
+        max-width: 100%; /* Varmistaa, että otsikko ei ylitä containerinsa leveyttä */
     }
 
     .material-symbols-outlined {
