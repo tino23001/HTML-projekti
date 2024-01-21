@@ -409,7 +409,7 @@ footer:before {
         margin-right: 1em;
     }
 
-    /* FOOTER, KESKEN */
+    /* FOOTER */
 
     .footer-container {
         flex-direction: column;
@@ -418,75 +418,93 @@ footer:before {
     }
 
     .footer-section {
-        /* Tämä varmistaa, että jokainen osio on keskitetty ja vie koko saatavilla olevan leveyden */
         width: 100%;
         text-align: left;
         padding-left: 150px;
-        margin: 10px 0; /* Lisää hieman tilaa osioiden väliin */
+        margin: 10px 0; 
         box-sizing: border-box;
     }
 
     .footer-section a,
     .footer-section p {
-        /* Tekstien ja linkkien tyylimäärittelyt, kuten fonttikoko ja värit */
-        font-size: 14px; /* Pienempi fonttikoko pienille näytöille */
+        font-size: 14px; 
        
     }
     .social-media-links a {
-    justify-content: left; /* Tämä keskittää sisällön, mutta varmista ettei se työnnä ulos */
-    display: flex;
-    align-items: left;
-    margin: 10 auto; /* Keskittää, mutta varmista ettei se työnnä ulos */
-    box-sizing: border-box; /* Varmista tämä */
-}
+        justify-content: left;
+        display: flex;
+        align-items: left;
+        margin: 10 auto; 
+        box-sizing: border-box; 
+    }
 
     .social-media-links .social-icon {
-        /* Säilytä kuvakkeiden koko mutta varmista, että ne ovat keskitetty */
-        margin: 0 5px; /* Säädä välimatkaa tarpeen mukaan */
+        margin: 0 5px; 
     } 
 
 
     
-    /* YHTEYSTIEDOT, KESKEN */
+   /* YHTEYSTIEDOT*/
     .contact-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0 10px; /* Lisää tarvittaessa paddingia sivuille, mutta ei liikaa */
+        padding: 0 10px;
     }
 
     .contact-info, .contact-form {
-        width: 100%; /* Asettaa leveydeksi 100% mobiililaitteilla */
-        box-sizing: border-box; /* Varmistaa, että padding ei kasvata leveyttä */
-        margin-bottom: 20px; /* Lisää välimatkaa alaosaan */
-    }
-    .contact-form {
-        margin-top: 0; /* Vähennä tai poista ylimääräinen marginaali yläpuolelta */
-        /* Muut säännöt */
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 20px;
     }
 
-    .contact-info .info,
+    .contact-form {
+        margin-top: 0; 
+        margin-bottom: 50px;
+    }
     .contact-form form {
-        flex-direction: column; /* Asettaa elementit pystysuoraan */
-        align-items: center; /* Keskittää elementit */
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .contact-info .info {
+        display: flex;
+        align-items: center; 
+        justify-content: flex-start; 
+        gap: 10px; 
+        padding: 0 15%; 
+    }
+
+    .contact-info .info span {
+    /* Ikonien leveys */
+        min-width: 40px; 
+        text-align: center;
+    }
+
+    .contact-info .info p {
+        text-align: left; 
+        margin: 0;
+        flex-grow: 1; 
     }
 
     .contact-form input,
     .contact-form textarea,
     .contact-form button {
-        width: calc(100% - 20px); /* Vähentää 10px paddingia molemmilta puolilta */
-        margin-bottom: 10px; /* Lisää välimatkaa elementtien välille */
+        width: calc(100% - 20px);
+        margin-bottom: 10px;
+    }
+    .contact-form button {
+        align-self: center;
+        margin-top: 10px; 
     }
 
-    /* Keskittää otsikot, kuvakkeet ja tekstisisällön */
     .contact-info h2, .contact-form h2 {
         text-align: center;
     }
 
     .material-symbols-outlined {
-        /* Vähennetään ikonien kokoa, jos ne ovat liian suuria mobiililaitteilla */
-        font-size: 1.5em;
+        font-size: 1.5em; 
     }
-
 
 }
