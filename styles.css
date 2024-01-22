@@ -258,7 +258,7 @@ storepage {
     width: 50%;
     color: #695858;
     font-family: 'Source Sans 3', sans-serif;
-    font-size: 22px;   
+    font-size: 20px;   
     
 }
 
@@ -270,6 +270,12 @@ storepage {
 
 .info p {
     margin-left: 10px;
+}
+
+
+.contact-form h1 {
+    text-align: center;
+    max-width: 100%; /* Varmistaa, että otsikko ei ylitä containerinsa leveyttä */
 }
 
 .contact-form form {
