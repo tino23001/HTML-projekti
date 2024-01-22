@@ -88,7 +88,7 @@ nav a:hover {
     margin-bottom: 20px; 
     text-align: center;
     color: #413B3B;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .top-products {
@@ -100,6 +100,7 @@ nav a:hover {
     margin: 2rem auto; /* Asettaa ylä- ja alamarginaalin ja keskittää containerin */
     padding: 0 20px;
     margin-bottom: 50px;
+    
 }
 
 
