@@ -634,8 +634,27 @@ footer:before {
 
 /*ETUVISUN TAUSTAKUVA JA TEKSTI*/
 
+/*Pilkun viilaus koko*/
+@media only screen and (max-width: 382px) {
+
+    .body-etusivu {
+        background-image: url('munatausta02.png');
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: right -42em top 1%;
+    }
+
+    .texti {
+        margin-top: 20%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 10%;
+
+    }
+}
+
 /* Pienet näytöt (alle 768 pikseliä) */
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 383px) and (max-width: 768px) {
 
     .body-etusivu {
         background-image: url('munatausta02.png');
@@ -683,13 +702,3 @@ footer:before {
     }
     
 }
-
-/*.texti  {
-    font-family: "Source Sans 3", sans-serif;
-    font-size: 20;
-    max-width: 350px;
-    margin-right: auto;
-    margin-top: 22em;
-    margin-left: 10%;
-    float: left;
-}*/
