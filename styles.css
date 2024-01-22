@@ -102,14 +102,6 @@ nav a:hover {
     margin-bottom: 50px;
 }
 
-.top-product-item {
-    width: 100%; /* Säätää jokaisen tuote-elementin leveyden */
-    border: 4px solid #000000; /* Muut tyylit pysyvät samoina */
-    max-width: 300px;
-    flex: 1 1 300px;
-    margin: 0 10px;
-    /* ... Muut tyylit ... */
-}
 
 .top-product-item img {
     max-width: 100%; /* Asettaa kuvan maksimileveydeksi 100% containerinsa leveydestä */
@@ -125,11 +117,11 @@ nav a:hover {
     padding: 1rem;
     border-radius: 10px;
     text-align: center;
-    background-color: transparent; /* Taustaväri */
+    background-color: transparent; 
 }
 
 .top-product-item img {
-    max-width: 80%; /* Pienennä kuvan kokoa */
+    max-width: 80%; 
     height: auto;
     border-radius: 10px;
 }
