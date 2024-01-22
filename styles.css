@@ -122,7 +122,6 @@ nav a:hover {
 }
 
 
-
 /*KAUPPA*/
 store-page {
     display: flex;
@@ -607,7 +606,7 @@ footer:before {
 /*ETUVISUN TAUSTAKUVA JA TEKSTI*/
 
 /*Pilkun viilaus koko*/
-@media only screen and (max-width: 382px) {
+@media only screen and (max-width: 470px) {
 
     .body-etusivu {
         background-image: url('munatausta02.png');
@@ -617,6 +616,7 @@ footer:before {
     }
 
     .texti {
+        font-size: 16px;
         margin-top: 20%;
         margin-left: 10%;
         margin-right: 10%;
@@ -626,7 +626,7 @@ footer:before {
 }
 
 /* Pienet näytöt (alle 768 pikseliä) */
-@media only screen and (min-width: 383px) and (max-width: 768px) {
+@media only screen and (min-width: 471px) and (max-width: 768px) {
 
     .body-etusivu {
         background-image: url('munatausta02.png');
@@ -636,7 +636,7 @@ footer:before {
     }
 
     .texti {
-        /* Muutettu marginaalit */
+        font-size: 18px;
         margin-top: 20%;
         margin-left: 10%;
         margin-right: 30%;
