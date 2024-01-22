@@ -63,19 +63,13 @@ nav a:hover {
 
 
 /*ETUSIVU*/
-.body-etusivu {
-    background-image: url('munatausta.png');
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-position: 80% top;
-}
 
 .texti  {
     font-family: "Source Sans 3", sans-serif;
     font-size: 20;
     max-width: 350px;
     margin-right: auto;
-    margin-top: 20%;
+    margin-top: 22em;
     margin-left: 10%;
     float: left;
 }
@@ -367,7 +361,7 @@ footer:before {
 
 
 /* Responsiivinen muotoilu pienille näytöille */
-@media only screen and (max-width: 1110px) { /*KESKEN!!!!*/
+@media only screen and (max-width: 1110px) { 
     /*HEADERI*/
 
     .site-header__wrapper {
@@ -402,19 +396,25 @@ footer:before {
         font-size: 24px;
         margin-right: 1em;
     }
-}
 
-
-@media only screen and (max-width: 768px) { /*KESKEN!!!!*/
 
     /*ETUSIVU*/
 
-    .body-etusivu {
-        background-image: url('munatausta.png');
-        background-repeat: no-repeat;
-        height: 10px;
-        background-position: right 20px top; 
+    .texti  {
+        font-family: "Source Sans 3", sans-serif;
+        font-size: 20;
+        max-width: 350px;
+        margin-right: auto;
+        margin-top: 30%;
+        margin-left: 10%;
+        float: left;
     }
+}
+
+
+@media only screen and (max-width: 768px) { 
+
+    /*ETUSIVU*/
     
     .home-logo {
         margin: 3% 0%;
@@ -431,15 +431,6 @@ footer:before {
         margin:12px 4px;
         padding-top: 1em;
     }
-
-    .texti {
-        /* Muutettu marginaalit */
-        margin-top: 20%;
-        margin-left: 10%;
-        margin-right: 10%;
-        margin-bottom: 10%;
-    }
-
 
     .top-products {
         display: flex;
@@ -640,3 +631,65 @@ footer:before {
     }
 
 }
+
+/*ETUVISUN TAUSTAKUVA JA TEKSTI*/
+
+/* Pienet näytöt (alle 768 pikseliä) */
+@media only screen and (max-width: 768px) {
+
+    .body-etusivu {
+        background-image: url('munatausta02.png');
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: right -42em top 1%;
+    }
+
+    .texti {
+        /* Muutettu marginaalit */
+        margin-top: 20%;
+        margin-left: 10%;
+        margin-right: 30%;
+        margin-bottom: 10%;
+    }
+}
+
+/* Keskisuuret näytöt (768 - 1024 pikseliä) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .body-etusivu {
+        background-image: url('munatausta02.png');
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: left top;
+    }
+}
+
+/* Suuret näytöt (1024 - 1440 pikseliä) */
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+    .body-etusivu {
+        background-image: url('munatausta02.png');
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: left top;
+    }
+}
+
+/* Erittäin suuret näytöt (yli 1440 pikseliä) */
+@media only screen and (min-width: 1441px) {
+    .body-etusivu {
+        background-image: url('munatausta02.png');
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: 90% top;
+    }
+    
+}
+
+/*.texti  {
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 20;
+    max-width: 350px;
+    margin-right: auto;
+    margin-top: 22em;
+    margin-left: 10%;
+    float: left;
+}*/
