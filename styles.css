@@ -66,7 +66,7 @@ nav a:hover {
 
 .texti  {
     font-family: "Source Sans 3", sans-serif;
-    font-size: 20;
+    font-size: 20px;
     max-width: 350px;
     margin-right: auto;
     margin-top: 22em;
@@ -145,7 +145,7 @@ nav a:hover {
 
 
 /*KAUPPA*/
-storepage {
+store-page {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
