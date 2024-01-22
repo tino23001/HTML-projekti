@@ -83,12 +83,14 @@ nav a:hover {
     /* Lisää tarvittavia tyylejä */
 }
 
+
+
 .top-products-title {
     /* Otsikon tyylit */
     margin-bottom: 20px; 
     text-align: center;
     color: #413B3B;
-    margin-top: 10px;
+    margin-top: -2vw;
 }
 
 .top-products {
@@ -97,35 +99,12 @@ nav a:hover {
     justify-content: center; /* Keskittää elementit */
     align-items: flex-start; /* Asettaa elementit yläreunaan linjaan, jos ne ovat eri korkeudessa */
     gap: 20px; /* Asettaa välin elementtien välille */
-    margin: 2rem auto; /* Asettaa ylä- ja alamarginaalin ja keskittää containerin */
+    margin: 2rem 0px; /* Asettaa ylä- ja alamarginaalin ja keskittää containerin */
     padding: 0 20px;
     margin-bottom: 50px;
     
 }
 
-
-.top-product-item img {
-    max-width: 100%; /* Asettaa kuvan maksimileveydeksi 100% containerinsa leveydestä */
-    height: auto; /* Säilyttää kuvan mittasuhteet */
-    border-radius: 10px;
-    border: 2px solid #9B968E;
-}
-
-.top-product-item {
-    flex: 1;
-    border: 4px solid #000000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    border-radius: 10px;
-    text-align: center;
-    background-color: transparent; 
-}
-
-.top-product-item img {
-    max-width: 80%; 
-    height: auto;
-    border-radius: 10px;
-}
 
 .btn-shop {
     padding: 10px 20px;
