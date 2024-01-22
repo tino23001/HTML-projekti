@@ -39,14 +39,15 @@ nav {
     display: flex;
     align-items: center;
     margin-left: auto; /* Siirtää navin oikeaan reunaan */
+
 }
 
 nav a {
     color: #333;
     font-family: 'Roboto Flex', sans-serif;
-    font-size: 36px;
+    font-size: 30px;
     text-decoration: none;
-    margin: 1em;
+    margin: 15px;
 }
 
 nav a:hover {
@@ -366,6 +367,42 @@ footer:before {
 
 
 /* Responsiivinen muotoilu pienille näytöille */
+@media only screen and (max-width: 1110px) { /*KESKEN!!!!*/
+    /*HEADERI*/
+
+    .site-header__wrapper {
+        padding-left: 1em; /* Pienempi sisennys pienemmällä näytöllä */
+    }
+
+    nav {
+        display: none; /* Piilota normaali navigaatio */
+        flex-direction: column; /* Aseta flex-suunta pystyyn */
+        align-items: flex-start; /* Aseta sisältö oikeaan reunaan */
+        position: absolute;
+        top: 100%; /* Aseta valikon alareunaan */
+        right: 0;
+        background-color: #f8f8f8;
+        width: 100%;
+        z-index: 2000; 
+    }
+
+    nav a {
+        margin: 0.5em 0;
+        display: block;
+        margin: 0.5em 0;
+        padding: 0.1em;
+        white-space: nowrap;
+        overflow: hidden; 
+        font-size: 30px;
+    }
+
+    .menu-icon {
+        display: block; /* Näytä hampurilaisikon */
+        cursor: pointer;
+        font-size: 24px;
+        margin-right: 1em;
+    }
+}
 
 
 @media only screen and (max-width: 768px) { /*KESKEN!!!!*/
@@ -382,7 +419,7 @@ footer:before {
     .home-logo {
         margin: 3% 0%;
         font-family: "Snippet", sans-serif;
-        font-size: 45px; /* Fonttikoko suhteessa näytön leveyteen */
+        font-size: 45px;
         color: #413B3B;
         text-decoration: none;
     }
@@ -395,18 +432,14 @@ footer:before {
         padding-top: 1em;
     }
 
-    .texti  {
-        font-family: "Source Sans 3", sans-serif;
-        font-size: 16px;
+    .texti {
+        /* Muutettu marginaalit */
         margin-top: 20%;
         margin-left: 10%;
-        margin-right: 30%;
-        margin-bottom: 30%;
-        float: left;
-        position: relative; /* Jos tarvitset absoluuttista sijoittelua sisäelementeille */
-        left: 10px; /* Tai haluamasi arvo */
-        z-index: 1;
+        margin-right: 10%;
+        margin-bottom: 10%;
     }
+
 
     .top-products {
         display: flex;
@@ -422,38 +455,44 @@ footer:before {
     /*HEADERI*/
 
     .site-header__wrapper {
-        padding-left: 1em; /* Pienempi sisennys pienemmällä näytöllä */
+        flex-direction: row; /* Palautetaan flex-suunta vaakasuoraan */
+        align-items: center;
+        justify-content: space-between; /* Lisätään tilaa elementtien välille */
     }
 
     nav {
-        display: none; /* Piilota normaali navigaatio */
-        flex-direction: column; /* Aseta flex-suunta pystyyn */
-        align-items: flex-start; /* Aseta sisältö oikeaan reunaan */
+        display: none;
+        flex-direction: row; /* Palautetaan flex-suunta vaakasuoraan */
+        align-items: center;
+    }
+
+    nav.open {
+        display: flex;
+        flex-direction: column; /* Asetetaan flex-suunta pystyyn kun avattu */
         position: absolute;
-        top: 100%; /* Aseta valikon alareunaan */
+        top: 100%;
         right: 0;
         background-color: #f8f8f8;
         width: 100%;
-        z-index: 1000; 
+        z-index: 2000;
     }
 
     nav a {
-        margin: 0.5em 0;
+        margin: 0.5em 1em;
         display: block;
-        margin: 0.5em 0;
         padding: 0.1em;
         white-space: nowrap;
-        overflow: hidden; 
-        font-size: 7vw;
+        overflow: hidden;
+        font-size: 30px;
     }
 
     .menu-icon {
-        display: block; /* Näytä hampurilaisikon */
+        display: block;
         cursor: pointer;
         font-size: 24px;
         margin-right: 1em;
+        z-index: 3000;
     }
-
 
     /*KAUPPA*/
 
@@ -585,7 +624,7 @@ footer:before {
         width: calc(100% - 20px);
         margin-bottom: 10px;
     }
-    
+
     .contact-form button {
         align-self: center;
         margin-top: 10px; 
