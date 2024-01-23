@@ -74,7 +74,9 @@ nav a:hover {
     float: left;
 }
 .tyhja-tila {
-    height: 100vh; /* Aseta haluamasi korkeus, esimerkiksi 100% näytön korkeudesta */
+    height: 100vh;
+    max-height: 710px;
+    min-height: 700px;
 }
 .flex-etusivu {
     display: flex;
@@ -84,13 +86,11 @@ nav a:hover {
 }
 
 
-
 .top-products-title {
     /* Otsikon tyylit */
     margin-bottom: 20px; 
     text-align: center;
     color: #413B3B;
-    margin-top: -2vw;
 }
 
 .top-products {
@@ -103,6 +103,27 @@ nav a:hover {
     padding: 0 20px;
     margin-bottom: 50px;
     
+}
+
+.top-product-item {
+    width: 300px; /* Säätää jokaisen tuote-elementin leveyden */
+    border: 4px solid #000000; /* Muut tyylit pysyvät samoina */
+    max-width: 300px;
+    flex: 1 1 300px;
+    margin: 0 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px 1rem 30px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: transparent; 
+    /* ... Muut tyylit ... */
+}
+
+.top-product-item img {
+    max-width: 100%; /* Asettaa kuvan maksimileveydeksi 100% containerinsa leveydestä */
+    height: auto; /* Säilyttää kuvan mittasuhteet */
+    border-radius: 10px;
+    border: 2px solid #9B968E;
 }
 
 
@@ -405,7 +426,6 @@ footer:before {
 
     .top-products {
         display: flex;
-        flex-direction: column;
         align-items: center; /* Keskitä lapset */
         gap: 20px;
         margin: 2rem auto;
