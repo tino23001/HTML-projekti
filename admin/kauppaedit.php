@@ -13,8 +13,8 @@
             font-size: 2em; /* Voit säätää fonttikokoa tarpeidesi mukaan */
         }
         .item button {
-            margin: 10px;
-            padding: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
         }
     </style>    
 </head>
