@@ -33,32 +33,11 @@
         <section class="kehys">
         <div><img src="muna1.png" alt="Item 1"></div> 
         <div>
-
-            // Tarkasta, onko tuote_id asetettu URL-parametrina
-            if (isset($_GET['tuote_id'])) {
-                $tuote_id = $_GET['tuote_id'];
-
-                // Haetaan tietokannasta yksittäisen tuotteen tiedot
-                $sql = "SELECT * FROM `tuotteet_web-ohjelmointi` WHERE tuote_id = :tuote_id";
-                $statement = $pdo->prepare($sql);
-                $statement->bindParam(':tuote_id', $tuote_id, PDO::PARAM_INT);
-                $statement->execute();
-                $tuote = $statement->fetch(PDO::FETCH_ASSOC);
-
-                // Tulosta tuotteen tiedot
-                if ($tuote) {
-                    echo "<h2>" . htmlspecialchars($tuote['nimi']) . "</h2>";
-                    echo "<img src='" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
-                    echo "<p>" . number_format($tuote['hinta'], 2, ',', ' ') . " €</p>";
-                    // Lisää muut tarvittavat tiedot
-
-                } else {
-                    echo "Tuotetta ei löytynyt.";
-                }
-            } else {
-                echo "Tuote_id-parametri puuttuu.";
-            }
-            </div>
+            <h2>Luksus muna 1</h2>
+            <p>19,99€</p>
+            <p>lorem ipsum juttuja todella paljon taatadaa tekstiä tekstiä vähän lisää</p>
+            <button>Lisää ostoskoriin</button>
+        </div>
 
 
         </section>

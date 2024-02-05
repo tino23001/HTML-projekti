@@ -218,6 +218,16 @@ store-page {
     font-family: 'Source Sans 3', sans-serif;
 }
 
+.kehys button {
+    padding: 10px 20px;
+    background-color: #444;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px; /* Pyöristää napin reunat */
+}
+
 
 
 /*OHJEETSIVU*/

@@ -49,7 +49,7 @@
                     echo "<div><h2>" . htmlspecialchars($tuote['nimi']) . "</h2>";
                     echo "<p>" . number_format($tuote['hinta'], 2, ',', ' ') . " €</p>";
                     echo "<p>" . htmlspecialchars($tuote['kuvaus']) . " </p>";
-                    echo "<button>Lisää ostoskoriin</button></a>";
+                    echo "<button>Lisää ostoskoriin</button>";
                     echo "</div>";
 
                 } else {
