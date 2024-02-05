@@ -12,8 +12,9 @@
             font-family: 'Material Symbols Outlined', sans-serif;
             font-size: 2em; /* Voit säätää fonttikokoa tarpeidesi mukaan */
         }
-        .button {
+        .item button {
             margin: 10px;
+            padding: 10px;
         }
     </style>    
 </head>
