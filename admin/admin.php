@@ -10,13 +10,6 @@
 <body>
     <?php
         session_start();
-        if (isset($_SESSION['kayttaja'])) {
-            echo "Tervetuloa " . $_SESSION['kayttaja'] . "!<br>";
-            echo "<a href='logout.php'>Kirjaudu ulos</a>";
-        } else {
-            echo "Et ole kirjautunut sisään!<br>";
-            echo "<a href='login.php'>Kirjaudu sisään</a>";
-        }
     ?>
 
 <h1>Admin-sivu</h1>
@@ -25,7 +18,6 @@
         <div class="box">
             <p>Tervetuloa <?php echo $_SESSION['kayttaja']; ?>!</p>
             <a href="Kauppaedit.php">Kauppasivun muokkaustila</a><br><br>
-            <a href="logout.php">Kirjaudu ulos</a>
         </div>
     </div>
 
