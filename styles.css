@@ -187,6 +187,37 @@ store-page {
         border-radius: 10px; /* Pyöristää napin reunat */
     }
 
+/*TUOTTESIVU*/
+.kehys {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 80%;
+    padding: 20px;
+    border-radius: 15px;
+    border: 4px solid #000000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 12em;
+    margin-bottom: 60px;
+    padding: 20px;
+
+}
+
+.kehys img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #9B968E;
+}
+
+.kehys > div {
+    max-width: 40%;
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;
+    text-align: left;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
 
 
 /*OHJEETSIVU*/

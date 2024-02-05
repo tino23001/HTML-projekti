@@ -14,8 +14,10 @@
         }
     </style>    
 </head>
-<?php include('config.php'); ?>
+
 <body>
+    <?php include('config.php'); ?>
+
     <header class="site-header">
         <div class="site-header__wrapper">
             <a href="index.html" class="home-logo">LOHIKÄRMES</a>
@@ -28,34 +30,38 @@
             </nav>
         </div>
     </header>
-    
-    <section class="flex-kauppa">
-        <span class="material-symbols-outlined" style="font-size: 3em;"> store </span> 
-        <h1 class="otsikko_muotoilu">LOREM IPSUM </h1>
-    </section>
-
     <store-page>
-    <?php
+        <section class="kehys">
+        <?php
+            if (isset($_GET['tuote_id'])) {
+                $tuote_id = $_GET['tuote_id'];
 
-    // Hae kaikki tuotteet tietokannasta
-    $sql = "SELECT tuote_id, nimi, hinta, kuva FROM `tuotteet_web-ohjelmointi`";
-    $statement = $pdo->prepare($sql);
-    $statement->execute();
-    $tuotteet = $statement->fetchAll(PDO::FETCH_ASSOC);
+                // Haetaan tietokannasta yksittäisen tuotteen tiedot
+                $sql = "SELECT * FROM `tuotteet_web-ohjelmointi` WHERE tuote_id = :tuote_id";
+                $statement = $pdo->prepare($sql);
+                $statement->bindParam(':tuote_id', $tuote_id, PDO::PARAM_INT);
+                $statement->execute();
+                $tuote = $statement->fetch(PDO::FETCH_ASSOC);
 
-    foreach ($tuotteet as $tuote) {
-        echo "<div class='item'>";
-        echo "<img src='" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
-        echo "<h3>" . htmlspecialchars($tuote['nimi']) . "</h3>";
-        // Tuotteen kuvausta ei tulosteta
-        echo "<p>" . number_format($tuote['hinta'], 2, ',', ' ') . " €</p>";
-        echo "<a href='tuote.php?tuote_id=" . $tuote['tuote_id'] . "'><button>Tarkastele</button></a>";
-        echo "</div>";
-    }
-    ?>
-    
+                // Tulosta tuotteen tiedot
+                if ($tuote) {
+                    echo "<div><img src='" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'></div>";
+                    echo "<div><h2>" . htmlspecialchars($tuote['nimi']) . "</h2>";
+                    echo "<p>" . number_format($tuote['hinta'], 2, ',', ' ') . " €</p>";
+                    echo "<p>" . htmlspecialchars($tuote['kuvaus']) . " </p>";
+                    echo "<button>Lisää ostoskoriin</button></a>";
+                    echo "</div>";
+
+                } else {
+                    echo "Tuotetta ei löytynyt.";
+                }
+            } else {
+                echo "Tuote_id-parametri puuttuu.";
+            }
+        ?>
+
+        </section>
     </store-page>
-
     <footer>
         <div class="footer-container">
             <div class="footer-section">
