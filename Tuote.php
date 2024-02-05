@@ -24,15 +24,16 @@
             <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
             <nav class="nav">
                 <a href="index.html">ETUSIVU</a>
-                <a href="Kauppa.html"><b>KAUPPA</b></a>
+                <a href="Kauppa.php"><b>KAUPPA</b></a>
                 <a href="Ohjeet.html">OHJEET</a>
                 <a href="Yhteystiedot.html">YHTEYSTIEDOT</a>
             </nav>
         </div>
     </header>
     <store-page>
+        <section class="kehys">
         <?php
-        echo '<section class="kehys">';
+        
             if (isset($_GET['tuote_id'])) {
                 $tuote_id = $_GET['tuote_id'];
 
@@ -58,10 +59,10 @@
             } else {
                 echo "Tuote_id-parametri puuttuu.";
             }
-        echo '</section>';
+       
         ?>
 
-        
+        </section>
     </store-page>
     <footer>
         <div class="footer-container">
