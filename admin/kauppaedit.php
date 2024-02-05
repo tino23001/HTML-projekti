@@ -49,8 +49,8 @@
         echo "<h3>" . htmlspecialchars($tuote['nimi']) . "</h3>";
         // Tuotteen kuvausta ei tulosteta
         echo "<p>" . number_format($tuote['hinta'], 2, ',', ' ') . " €</p>";
-        echo "<button><a href="muokkaatuotetta.php">Muokkaa tuotetta</a></button>";
-        echo "<button><a href="poistatuote.php">Poista tuote</a></button>";
+        echo "<button><a href="muokkaatuotetta.php">Muokkaa tuotetta</a></button>;
+        echo "<button><a href="poistatuote.php">Poista tuote</a></button>;
         echo "</div>";
     }
     ?>
