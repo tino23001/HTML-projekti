@@ -38,7 +38,7 @@
     <?php
 
     // Hae kaikki tuotteet tietokannasta
-    $sql = "SELECT tuote_id, nimi, hinta, kuva FROM `tuotteet_web-ohjelmointi`";
+    $sql = "SELECT tuote_id, nimi, hinta, kuva FROM tuotteet";
     $statement = $pdo->prepare($sql);
     $statement->execute();
     $tuotteet = $statement->fetchAll(PDO::FETCH_ASSOC);

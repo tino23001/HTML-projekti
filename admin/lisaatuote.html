@@ -3,59 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lohikärmes Kauppa</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Lisää tuote</title>
+    <link rel="stylesheet" href="../styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&family=Snippet&family=Source+Sans+3&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <style>
-        .material-symbols-outlined {
-            font-family: 'Material Symbols Outlined', sans-serif;
-            font-size: 2em; /* Voit säätää fonttikokoa tarpeidesi mukaan */
-        }
-    </style>    
 </head>
-<?php include('../config.php'); ?>
 <body>
+
     <header class="site-header">
         <div class="site-header__wrapper">
             <a href="index.html" class="home-logo">LOHIKÄRMES</a>
-            <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
-            <nav class="nav">
-                <a href="index.html">ETUSIVU</a>
-                <a href="Kauppa.html"><b>KAUPPA</b></a>
-                <a href="Ohjeet.html">OHJEET</a>
-                <a href="Yhteystiedot.html">YHTEYSTIEDOT</a>
-            </nav>
         </div>
     </header>
-    
-    <section class="flex-kauppa">
-        <span class="material-symbols-outlined" style="font-size: 3em;"> store </span> 
-        <h1 class="otsikko_muotoilu">LOREM IPSUM </h1>
-    </section>
 
-    <store-page>
-    <?php
-
-    // Hae kaikki tuotteet tietokannasta
-    $sql = "SELECT tuote_id, nimi, hinta, kuva FROM tuotteet";
-    $statement = $pdo->prepare($sql);
-    $statement->execute();
-    $tuotteet = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-    foreach ($tuotteet as $tuote) {
-        echo "<div class='item'>";
-        echo "<img src='" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
-        echo "<h3>" . htmlspecialchars($tuote['nimi']) . "</h3>";
-        // Tuotteen kuvausta ei tulosteta
-        echo "<p>" . number_format($tuote['hinta'], 2, ',', ' ') . " €</p>";
-        echo "<button>Muokkaa tuotetta</button>";
-        echo "<button>Poista tuote</button>";
-        echo "</div>";
-    }
-    ?>
-    
-    </store-page>
+    <div class="contact-container"> <!-- Käytä samaa container-luokkaa kuin yhteystietolomakkeessa -->
+        <section class="contact-form">
+            <form action="add_product.php" method="post" enctype="multipart/form-data">
+                <h1>Lisää tuote</h1>
+                <input type="text" name="product_name" placeholder="Tuotteen nimi" required>
+                <input type="number" name="product_price" placeholder="Hinta" step="0.01" required>
+                <textarea name="product_description" placeholder="Tuotteen kuvaus" required></textarea>
+                <input type="file" name="product_image" required>
+                <button type="submit">Tallenna tuote</button>
+            </form>
+        </section>
+    </div>
 
     <footer>
         <div class="footer-container">
@@ -110,21 +81,6 @@
             © Lohikärmes 2024
         </div>
     </footer>
-    
-    <script>
-      function toggleMenu() {
-   var nav = document.querySelector('nav');
-   var menuIcon = document.querySelector('.menu-icon');
-
-   if (nav.style.display === 'block') {
-       nav.style.display = 'none';
-       menuIcon.setAttribute('aria-label', 'Avaa valikko');
-   } else {
-       nav.style.display = 'block';
-       menuIcon.setAttribute('aria-label', 'Sulje valikko');
-   }
-}
-   </script>
 
 </body>
 </html>

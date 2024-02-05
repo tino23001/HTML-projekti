@@ -38,7 +38,7 @@
                 $tuote_id = $_GET['tuote_id'];
 
                 // Haetaan tietokannasta yksittäisen tuotteen tiedot
-                $sql = "SELECT * FROM `tuotteet_web-ohjelmointi` WHERE tuote_id = :tuote_id";
+                $sql = "SELECT * FROM tuotteet WHERE tuote_id = :tuote_id";
                 $statement = $pdo->prepare($sql);
                 $statement->bindParam(':tuote_id', $tuote_id, PDO::PARAM_INT);
                 $statement->execute();
