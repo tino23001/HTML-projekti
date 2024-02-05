@@ -8,6 +8,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&family=Snippet&family=Source+Sans+3&display=swap" rel="stylesheet">
 </head>
 <body>
+<header class="site-header">
+        <div class="site-header__wrapper">
+            <a href="index.html" class="home-logo">LOHIKÄRMES</a>
+        </div>
+</header>
+
+<section>
+        <div class="texti">
+                <h1 class="otsikko_muotoilu">Adminsivu</h1><br><br>
+                <p><a href="kauppaedit.php">Muokkaa kauppasivua</p>
+        </div>
+        <!-- Tyhjää tilaa lisäämällä nostetaan footer alaspäin -->
+        <div class="tyhja-tila"></div>
+</section>    
+
     <?php
         session_start();
     ?>
@@ -17,11 +32,12 @@
     <div class="container">
         <div class="box">
             <p>Tervetuloa <?php echo $_SESSION['kayttaja']; ?>!</p>
-            <a href="indexedit.php">Etusivun muokkaustila</a><br><br>
             <a href="Kauppaedit.php">Kauppasivun muokkaustila</a><br><br>
-            <a href="Ohjeetedit.php">Ohjesivun muokkaustila</a><br><br>
-            <a href="Yhteystiedotedit.php">Yhteystietosivun muokkaustila</a><br><br>
         </div>
+    </div>
+
+    <div class="footer-bottom">
+            © Lohikärmes 2024
     </div>
 
 </body>
