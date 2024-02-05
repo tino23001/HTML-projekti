@@ -1,20 +1,3 @@
-<?php
-// Yhteysasetukset
-$palvelin = "localhost";
-$kayttajatunnus = "trtkm23a_19";
-$salasana = "yPc4fbak";
-$tietokanta = "wp_trtkm23a_19";
-
-// Luo tietokantayhteys
-try {
-    $pdo = new PDO("mysql:host=$palvelin;dbname=$tietokanta;charset=utf8", $kayttajatunnus, $salasana);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    die("Yhteys epäonnistui: " . $e->getMessage());
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -54,8 +37,9 @@ try {
     
     <div class="top-products">
         <?php
+         include('config.php');
         // Hae tuotteet, joiden tuote_id ovat 1, 5 ja 6
-        $sql = "SELECT tuote_id, nimi, hinta, kuva FROM `tuotteet_web-ohjelmointi` WHERE tuote_id IN (1, 5, 6)";
+        $sql = "SELECT tuote_id, nimi, hinta, kuva FROM tuotteet WHERE tuote_id IN (1, 5, 6)";
         $statement = $pdo->prepare($sql);
         $statement->execute();
         $tuotteet = $statement->fetchAll(PDO::FETCH_ASSOC);
