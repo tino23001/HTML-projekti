@@ -29,11 +29,11 @@ try {
 <body class="body-etusivu">
     <header class="site-header">
         <div class="site-header__wrapper">
-            <a href="index.html" class="home-logo">LOHIKÄRMES</a>
+            <a href="index.php" class="home-logo">LOHIKÄRMES</a>
             <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
             <nav class="nav">
-                <a href="index.html"><b>ETUSIVU</b></a>
-                <a href="Kauppa.html">KAUPPA</a>
+                <a href="index.php"><b>ETUSIVU</b></a>
+                <a href="Kauppa.php">KAUPPA</a>
                 <a href="Ohjeet.html">OHJEET</a>
                 <a href="Yhteystiedot.html">YHTEYSTIEDOT</a>
             </nav>
@@ -65,7 +65,7 @@ try {
             echo "<img src='" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
             echo "<h3>" . htmlspecialchars($tuote['nimi']) . "</h3>";
             echo "<p>€" . number_format($tuote['hinta'], 2, ',', ' ') . "</p>";
-            echo "<a href='Kauppa.html' class='btn-shop'>Lue lisää</a>";
+            echo "<a href='Kauppa.php' class='btn-shop'>Lue lisää</a>";
             echo "</div>";
         }
         ?>

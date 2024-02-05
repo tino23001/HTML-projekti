@@ -20,10 +20,10 @@
 
     <header class="site-header">
         <div class="site-header__wrapper">
-            <a href="index.html" class="home-logo">LOHIKÄRMES</a>
+            <a href="index.php" class="home-logo">LOHIKÄRMES</a>
             <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
             <nav class="nav">
-                <a href="index.html">ETUSIVU</a>
+                <a href="index.php">ETUSIVU</a>
                 <a href="Kauppa.php"><b>KAUPPA</b></a>
                 <a href="Ohjeet.html">OHJEET</a>
                 <a href="Yhteystiedot.html">YHTEYSTIEDOT</a>
