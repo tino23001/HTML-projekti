@@ -14,7 +14,7 @@
         }
     </style>    
 </head>
-<?php include('config.php'); ?>
+<?php include('../config.php'); ?>
 <body>
     <header class="site-header">
         <div class="site-header__wrapper">
