@@ -65,7 +65,7 @@ try {
             echo "<img src='" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
             echo "<h3>" . htmlspecialchars($tuote['nimi']) . "</h3>";
             echo "<p>€" . number_format($tuote['hinta'], 2, ',', ' ') . "</p>";
-            echo "<a href='Kauppa.html' class='btn-shop'>Siirry kauppaan</a>";
+            echo "<a href='Kauppa.html' class='btn-shop'>Lue lisää</a>";
             echo "</div>";
         }
         ?>
