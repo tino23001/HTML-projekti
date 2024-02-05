@@ -21,7 +21,7 @@
 
 <section>
         <div class="texti">
-                <h1 class="otsikko_muotoilu">Adminsivu</h1><br><br>
+                <h1 class="otsikko_muotoilu">Adminsivu</h1>
                 <p><a href="kauppaedit.php">Muokkaa kauppasivua</a></p>
         </div>
         <!-- Tyhjää tilaa lisäämällä nostetaan footer alaspäin -->
