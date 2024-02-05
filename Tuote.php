@@ -14,9 +14,9 @@
         }
     </style>    
 </head>
-
+<?php include('config.php'); ?>
 <body>
-    <?php include('config.php'); ?>
+
 
     <header class="site-header">
         <div class="site-header__wrapper">
@@ -31,8 +31,8 @@
         </div>
     </header>
     <store-page>
-        <section class="kehys">
         <?php
+        echo '<section class="kehys">';
             if (isset($_GET['tuote_id'])) {
                 $tuote_id = $_GET['tuote_id'];
 
@@ -58,9 +58,10 @@
             } else {
                 echo "Tuote_id-parametri puuttuu.";
             }
+        echo '</section>';
         ?>
 
-        </section>
+        
     </store-page>
     <footer>
         <div class="footer-container">

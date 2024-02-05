@@ -49,7 +49,7 @@
         echo "<h3>" . htmlspecialchars($tuote['nimi']) . "</h3>";
         // Tuotteen kuvausta ei tulosteta
         echo "<p>" . number_format($tuote['hinta'], 2, ',', ' ') . " €</p>";
-        echo "<a href='tuote.php?tuote_id=" . $tuote['tuote_id'] . "'><button>Tarkastele</button></a>";
+        echo "<a href='Tuote.php?tuote_id=" . $tuote['tuote_id'] . "'><button>Tarkastele</button></a>";
         echo "</div>";
     }
     ?>
