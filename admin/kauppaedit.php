@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lohikärmes Kauppa</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&family=Snippet&family=Source+Sans+3&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
         .material-symbols-outlined {
             font-family: 'Material Symbols Outlined', sans-serif;
             font-size: 2em; /* Voit säätää fonttikokoa tarpeidesi mukaan */
+        }
+        .button {
+            margin: 10px;
         }
     </style>    
 </head>
@@ -49,8 +52,8 @@
         echo "<h3>" . htmlspecialchars($tuote['nimi']) . "</h3>";
         // Tuotteen kuvausta ei tulosteta
         echo "<p>" . number_format($tuote['hinta'], 2, ',', ' ') . " €</p>";
-        echo "<button>Muokkaa tuotetta</button>";
-        echo "<button>Poista tuote</button>";
+        echo "<button>Muokkaa</button>";
+        echo "<button>Poista</button>";
         echo "</div>";
     }
     ?>
