@@ -11,7 +11,7 @@
 
 <?php
 include('config.php');
-
+    //Tarkistetaan, onko lomake lähetetty
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $productName = htmlspecialchars($_POST['product_name']);
     $productPrice = filter_var($_POST['product_price'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
@@ -28,14 +28,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return; // Keskeytetään suoritus tähän, jos tuotenimi on jo käytössä
     }
 
+    // Tarkista, että tuotenimi on järkevä
+    if (empty($productName) || $productName == '-' || !preg_match('/[a-zA-Z0-9]/', $productName)) {
+        echo "Virhe! Tarkista tuotteen nimi.";
+        return;
+    }
     // Tarkistetaan, onko tuotenimi sopivan pituinen
     if (strlen($productName) > 30) {
         echo "Virhe! Tuotenimen pituus ei saa ylittää 30 merkkiä.";
         return;
     }
 
-    // Tarkistetaan, että hinta on positiivinen
-    if ($productPrice <= 0) {
+    $productPrice = (float)$productPrice; // Muunnetaan merkkijono float-luvuksi
+    if ($productPrice <= 0 || !is_numeric($productPrice)) {
         echo "Virhe! Hinnan tulee olla positiivinen numero.";
         return;
     }
@@ -74,4 +79,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 </body>
 </html>
-
