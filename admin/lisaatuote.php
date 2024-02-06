@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $productDescription = htmlspecialchars($_POST['product_description']);
 
     // Kuvan käsittely
-    $targetDir = "uploads/";
+    $targetDir = "uploads/";  //tänne kun sais tallennettua --> $targetDir = "lohikarmes/"; 
     $uniqueImageName = uniqid() . basename($_FILES["product_image"]["name"]); // Luo uniikki tiedostonimi
     $targetFile = $targetDir . $uniqueImageName;
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
