@@ -22,7 +22,8 @@
 <section>
         <div class="texti">
                 <h1 class="otsikko_muotoilu">Adminsivu</h1>
-                <p><a href="kauppaedit.php">Muokkaa kauppasivua</a></p>
+                <p><a href="kauppaedit.php">Muokkaa kauppasivua</a><br></p>
+                <p><a href="lisaatuote.html">Lisää tuote kauppasivulle</a></p>
         </div>
         <!-- Tyhjää tilaa lisäämällä nostetaan footer alaspäin -->
         <div class="tyhja-tila"></div>
