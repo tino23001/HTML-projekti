@@ -55,7 +55,7 @@ foreach ($tuotteet as $tuote) {
     // Tuotteen kuvausta ei tulosteta
     echo "<p>" . number_format($tuote['hinta'], 2, ',', ' ') . " €</p>";
     echo "<button>Muokkaa</button>";
-    echo '<button class="poistaButton">Poista</button>'; // Muutettu id luokaksi
+    echo '<button class="poistaButton">Poista</button>'; 
     echo "</div>";
 }
 ?>
@@ -86,8 +86,6 @@ $(document).ready(function(){
 
 
 </store-page>
-
-
 
     <footer>
         <div class="footer-bottom">
