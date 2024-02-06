@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&family=Snippet&family=Source+Sans+3&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         .material-symbols-outlined {
             font-family: 'Material Symbols Outlined', sans-serif;
@@ -39,77 +40,56 @@
     </section>
 
     <store-page>
-    <?php
+<?php
 
-    // Hae kaikki tuotteet tietokannasta
-    $sql = "SELECT tuote_id, nimi, hinta, kuva FROM tuotteet";
-    $statement = $pdo->prepare($sql);
-    $statement->execute();
-    $tuotteet = $statement->fetchAll(PDO::FETCH_ASSOC);
+// Hae kaikki tuotteet tietokannasta
+$sql = "SELECT tuote_id, nimi, hinta, kuva FROM tuotteet";
+$statement = $pdo->prepare($sql);
+$statement->execute();
+$tuotteet = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($tuotteet as $tuote) {
-        echo "<div class='item'>";
-        echo "<img src='../uploads/" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
-        echo "<h3>" . htmlspecialchars($tuote['nimi']) . "</h3>";
-        // Tuotteen kuvausta ei tulosteta
-        echo "<p>" . number_format($tuote['hinta'], 2, ',', ' ') . " €</p>";
-        echo "<button>Muokkaa</button>";
-        echo "<button>Poista</button>";
-        echo "</div>";
-    }
-    ?>
-    
-    </store-page>
+foreach ($tuotteet as $tuote) {
+    echo "<div class='item' id='tuote_" . $tuote['tuote_id'] . "'>"; 
+    echo "<img src='../uploads/" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
+    echo "<h3>" . htmlspecialchars($tuote['nimi']) . "</h3>";
+    // Tuotteen kuvausta ei tulosteta
+    echo "<p>" . number_format($tuote['hinta'], 2, ',', ' ') . " €</p>";
+    echo "<button>Muokkaa</button>";
+    echo '<button class="poistaButton">Poista</button>'; // Muutettu id luokaksi
+    echo "</div>";
+}
+?>
+<script>
+$(document).ready(function(){
+    $(".poistaButton").click(function() {
+        var vahvistus = confirm("Haluatko varmasti poistaa tuotteen?");
+        if (vahvistus) {
+            var tuote_id = $(this).closest('.item').attr('id').replace('tuote_', '');
+            $.post("poista_tuote.php", { tuote_id: tuote_id })
+                .done(function(response) {
+                    if(response.trim() === "success") {
+                        alert("Tuote poistettu!");
+                        $("#tuote_" + tuote_id).remove();
+                    } else {
+                        alert("Tuotetta ei voitu poistaa.");
+                    }
+                })
+                .fail(function() {
+                    alert("Virhe tuotetta poistettaessa.");
+                });
+        } else {
+            alert("Tuotetta ei poistettu.");
+        }
+    });
+});
+</script>
+
+
+</store-page>
+
+
 
     <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>Asiakaspalvelu</h4>
-               
-                <p><strong>Puhelin:</strong> <a href="tel:+358201234567">+358 20 123 4567</a></p>
-                <a href="Yhteystiedot.html">Yhteydenottolomake</a>
-            </div>
-            <div class="footer-section">
-                <h4>Info</h4>
-                <a href="#palautukset">Palautukset</a>
-                <a href="#takuu">Takuu</a>
-                <a href="#maksutavat">Maksutavat</a>
-                <a href="#toimitustavat">Toimitustavat</a>
-            </div>
-            <div class="footer-section">
-                <h4>Resurssit</h4>
-                <a href="#vinkit-ja-osto-oppaat">Vinkit ja osto-oppaat</a>
-                <a href="#vari-ja-luonneanalyysi">Väri- ja luonneanalyysi</a>
-                <a href="#koulutusopas">Koulutusopas</a>
-            </div>
-            <div class="footer-section">
-                <h4>Palvelut</h4>
-                <a href="#yritysmyynti">Yritysmyynti</a>
-                <a href="#neuvontapalvelut">Neuvontapalvelut</a>
-                <a href="#elainlaakaripalvelut">Eläinlääkäripalvelut</a>
-            </div>
-            <div class="footer-section">
-              <h4>Sosiaalinen media</h4>
-              <div class="social-media-links">
-                  <a href="https://www.facebook.com" target="_blank">
-                      <img src="fb.png" alt="Facebook" class="social-icon">
-                      <span>Facebook</span>
-                  </a>
-                  <a href="https://www.instagram.com/yourpage" target="_blank">
-                      <img src="ig.png" alt="Instagram" class="social-icon">
-                      <span>Instagram</span>
-                  </a>
-                  <a href="https://www.linkedin.com/yourpage" target="_blank">
-                      <img src="linkedin.png" alt="LinkedIn" class="social-icon">
-                      <span>LinkedIn</span>
-                  </a>
-                  <a href="https://www.youtube.com/yourpage" target="_blank">
-                      <img src="youtube.png" alt="YouTube" class="social-icon">
-                      <span>YouTube</span>
-                  </a>
-              </div>
-          </div>
-        </div>
         <div class="footer-bottom">
             © Lohikärmes 2024
         </div>
