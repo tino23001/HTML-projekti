@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $productDescription = htmlspecialchars($_POST['product_description']);
 
     // Kuvan käsittely
-    $targetDir = "/home/trtkm23a_19/public_html/lohikarmes/uploads";  //tänne kun sais tallennettua --> $targetDir = "lohikarmes/"; 
+    $targetDir = "../uploads";  //tänne kun sais tallennettua --> $targetDir = "lohikarmes/"; 
     $uniqueImageName = uniqid() . basename($_FILES["product_image"]["name"]); // Luo uniikki tiedostonimi
     $targetFile = $targetDir . DIRECTORY_SEPARATOR . $uniqueImageName;
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             try {
                 $sql = "INSERT INTO tuotteet (nimi, hinta, kuva, kuvaus) VALUES (?, ?, ?, ?)";
                 $stmt = $pdo->prepare($sql);
-                $stmt->execute([$productName, $productPrice, $targetFile, $productDescription]);
+                $stmt->execute([$productName, $productPrice, $uniqueImageName, $productDescription]); //$targetFile oli $uniqueImageName tilalla
 
                 echo "Tuote lisätty onnistuneesti.";
             } catch (PDOException $e) {

@@ -45,7 +45,7 @@
 
     foreach ($tuotteet as $tuote) {
         echo "<div class='item'>";
-        echo "<img src='" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
+        echo "<img src='uploads/" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
         echo "<h3>" . htmlspecialchars($tuote['nimi']) . "</h3>";
         // Tuotteen kuvausta ei tulosteta
         echo "<p>" . number_format($tuote['hinta'], 2, ',', ' ') . " €</p>";

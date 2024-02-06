@@ -46,7 +46,7 @@
 
                 // Tulosta tuotteen tiedot
                 if ($tuote) {
-                    echo "<div><img src='" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'></div>";
+                    echo "<div><img src='uploads/" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'></div>";
                     echo "<div><h2>" . htmlspecialchars($tuote['nimi']) . "</h2>";
                     echo "<p>" . number_format($tuote['hinta'], 2, ',', ' ') . " €</p>";
                     echo "<p>" . htmlspecialchars($tuote['kuvaus']) . " </p>";
