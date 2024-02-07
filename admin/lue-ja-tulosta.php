@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lue ja tulosta</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&family=Snippet&family=Source+Sans+3&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
@@ -22,9 +22,8 @@
             <a href="admin.php" class="home-logo">LOHIKÄRMES</a>
         </div>
     </header>
-        <section class="taulukko-container">
+        <section class="taulukko">
             <h1 class="otsikko_muotoilu">Tuotteet</h1>
-            <p><a href="lisaatuote.html">Lisää tuote</a></p>
 
     <?php
         $sql = "SELECT tuote_id, nimi, hinta FROM tuotteet";
@@ -54,6 +53,8 @@
         $pdo->connection = null;
 
     ?>
+
+            <h3><a href="lisaatuote.html">Lisää tuote</a></h3>
     </section>
 
     <footer>
