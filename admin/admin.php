@@ -15,7 +15,7 @@
 
 <header class="site-header">
         <div class="site-header__wrapper">
-            <a href="index.php" class="home-logo">LOHIKÄRMES</a>
+            <a href="admin.php" class="home-logo">LOHIKÄRMES</a>
         </div>
 </header>
 

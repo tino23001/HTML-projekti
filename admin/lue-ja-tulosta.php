@@ -19,14 +19,7 @@
 <body>
     <header class="site-header">
         <div class="site-header__wrapper">
-            <a href="index.php" class="home-logo">LOHIKÄRMES</a>
-            <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
-            <nav class="nav">
-                <a href="index.php">ETUSIVU</a>
-                <a href="Kauppa.php">KAUPPA</a>
-                <a href="Ohjeet.html">OHJEET</a>
-                <a href="Yhteystiedot.html">YHTEYSTIEDOT</a>
-            </nav>
+            <a href="admin.php" class="home-logo">LOHIKÄRMES</a>
         </div>
     </header>
         <section class="taulukko-container">
