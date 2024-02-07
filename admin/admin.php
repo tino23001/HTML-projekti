@@ -23,11 +23,14 @@
         <div class="texti">
                 <h1 class="otsikko_muotoilu">Adminsivu</h1>
                 <p><a href="kauppaedit.php">Muokkaa kauppasivua</a><br></p>
-                <p><a href="lisaatuote.html">Lisää tuote kauppasivulle</a></p>
+                <p><a href="lisaatuote.html">Lisää tuote kauppasivulle</a><br></p>
+                <p><a href="lue-ja-tulosta.php">Lue ja tulosta tuotteet</a></p>
         </div>
         <!-- Tyhjää tilaa lisäämällä nostetaan footer alaspäin -->
         <div class="tyhja-tila"></div>
 </section>    
+    <div class="footer-section">
+    </div>
 
     <div class="footer-bottom">
             © Lohikärmes 2024
