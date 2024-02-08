@@ -29,21 +29,39 @@
                 </div>
             </header>
 
-<section>
-        <div class="texti">
-                <h1 class="otsikko_muotoilu">Adminsivu</h1>
-                <p><a href="kauppaedit.php">Tuotelista</a><br></p>
-                <p><a href="lisaatuote.html">Lisää tuote</a><br></p>
-        </div>
-        <!-- Tyhjää tilaa lisäämällä nostetaan footer alaspäin -->
-        <div class="tyhja-tila"></div>
-</section>    
+        <section>
+                <div class="texti">
+                        <h1 class="otsikko_muotoilu">Adminsivu</h1>
+                        <p><a href="kauppaedit.php">Tuotelista</a><br></p>
+                        <p><a href="lisaatuote.html">Lisää tuote</a><br></p>
+                </div>
+                <!-- Tyhjää tilaa lisäämällä nostetaan footer alaspäin -->
+                <div class="tyhja-tila"></div>
+        </section>    
+
+            </div>
+            <div class="footer-bottom-admin">
+                © Lohikärmes 2024
+            </footer>
+            </div>
 
     </div>
-    <div class="footer-bottom-admin">
-        © Lohikärmes 2024
-    </footer>
-    </div>
+</div>
+
+    <script>
+      function toggleMenu() {
+   var nav = document.querySelector('nav');
+   var menuIcon = document.querySelector('.menu-icon');
+
+   if (nav.style.display === 'block') {
+       nav.style.display = 'none';
+       menuIcon.setAttribute('aria-label', 'Avaa valikko');
+   } else {
+       nav.style.display = 'block';
+       menuIcon.setAttribute('aria-label', 'Sulje valikko');
+   }
+}
+   </script>
 
 </body>
 </html>
