@@ -13,18 +13,24 @@
         session_start();
     ?>
 
-<header class="site-header">
+<body class="body-etusivu">
+    <header class="site-header">
         <div class="site-header__wrapper">
             <a href="admin.php" class="home-logo">LOHIKÄRMES</a>
+            <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
+            <nav class="nav">
+                <a href="admin.php"><b>ADMIN</b></a>
+                <a href="kauppaedit.php">TUOTELISTA</a>
+                <a href="lisaatuote.html">TUOTTEEN LISÄYS</a>
+            </nav>
         </div>
-</header>
+    </header>
 
 <section>
         <div class="texti">
                 <h1 class="otsikko_muotoilu">Adminsivu</h1>
-                <p><a href="kauppaedit.php">Muokkaa kauppasivua</a><br></p>
-                <p><a href="lisaatuote.html">Lisää tuote kauppasivulle</a><br></p>
-                <p><a href="lue-ja-tulosta.php">Lue ja tulosta tuotteet</a></p>
+                <p><a href="kauppaedit.php">Tuotelista</a><br></p>
+                <p><a href="lisaatuote.html">Lisää tuote</a><br></p>
         </div>
         <!-- Tyhjää tilaa lisäämällä nostetaan footer alaspäin -->
         <div class="tyhja-tila"></div>

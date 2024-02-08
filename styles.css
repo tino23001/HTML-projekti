@@ -381,6 +381,14 @@ store-page {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 20px;
 }
+.taulukko th {
+    background-color: #444;
+    color: white;
+    padding: 5px;
+    border: 2px solid #ccc;
+    text-align: left;
+
+}
 
 /*OHJEETSIVU*/
 .flex-ohjeet {
