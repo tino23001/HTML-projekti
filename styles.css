@@ -216,9 +216,9 @@ store-page {
 }
 
 .kehys div {
-    max-width: 40%;
-    margin: 10px;
-    padding: 20px;
+    max-width: 50%;
+    margin: 2px;
+    padding: 15px;
     text-align: left;
     font-family: 'Source Sans 3', sans-serif;
 }
@@ -231,6 +231,134 @@ store-page {
     border: none;
     cursor: pointer;
     border-radius: 10px; /* Pyöristää napin reunat */
+}
+
+.product-details {
+    flex-basis: 50%; /* Antaa tuotetietojen osuudelle puolet tilasta */
+    padding-left: 20px; /* Erottaa tuotetiedot kuvasta */
+    margin-left: auto;
+    
+}
+.product-ratings {
+    /* Esimerkki: asettele arvostelutiedot */
+    margin: 10px 0;
+    
+}
+
+
+
+.total-reviews {
+    color: #666; /* Hienovarainen väri arvostelujen määrälle */
+    margin-left: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.write_review h3 {
+    text-align: center;
+    margin-bottom: -50px; /* Käytä negatiivista arvoa pienentääksesi rakoa */
+    color: #695858;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 24px;
+    margin-top: -50px; /* Vähentää otsikon ja lomakkeen välistä etäisyyttä */
+    margin-bottom: 10px; /* Säädä etäisyyttä otsikon ja lomakkeen ensimmäisen kentän välillä */
+}
+
+.write_review {
+    background-color: #EFE6D4;
+    padding: 20px;
+    border-radius: 5px;
+    /* Asetetaan lomakkeen leveys suhteessa sen vanhemman konteinerin leveyteen */
+    width: 100%;
+    /* Määritellään maksimileveys, jotta lomake ei tule liian leveäksi suurilla näytöillä */
+    max-width: 800px; /* Voit säätää tätä arvoa sopivaksi */
+    margin: 20px auto; /* Keskitetään lomake ja lisätään ylä- ja alamarginaali */
+    color: #695858;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.reviews_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Keskitetään kaikki lapset vaakasuunnassa */
+    width: 100%;
+    text-align: center; /* Keskitetään kaikki tekstit */
+}
+
+/* Varmistetaan, että kaikki sisällä olevat elementit myös keskitetään */
+.reviews_section > *, .write_review_btn, .write_review, .review {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /* Keskitetään teksti, jos elementti sisältää tekstiä */
+}
+.review {
+    background-color: #f7f7f7; /* Taustaväri */
+    padding: 15px;
+    margin-bottom: 10px; /* Erottaa arvostelut toisistaan */
+    border-radius: 5px; /* Pyöristetyt kulmat */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Kevyt varjostus */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%; /* Käyttää vanhemman elementin leveyttä */
+    max-width: 600px; /* Säädä tätä arvoa tarpeen mukaan */
+    flex-grow: 1;
+    flex-basis: 0; 
+}
+
+.review .name {
+    font-weight: bold; /* Korostaa käyttäjän nimeä */
+    margin-bottom: 5px; /* Pieni marginaali ennen arvostelutekstiä */
+}
+
+.review .rating {
+    color: #ffc107; /* Kultainen väri tähdille */
+    margin-bottom: 5px; /* Pieni marginaali ennen arvostelutekstiä */
+}
+
+.review .date {
+    font-size: 0.8em;
+    color: #777; /* Hienovarainen väri päivämäärälle */
+    margin-bottom: 10px; /* Pieni marginaali ennen arvostelutekstiä */
+}
+
+.review .content {
+    word-wrap: break-word; /* Varmistaa, että pitkät sanat rivityvät */
+    overflow-wrap: break-word; /* Varmistaa, että pitkät sanat rivityvät */
+    max-width: 100%; /* Asettaa maksimileveyden, jonka sisällä sisältö pysyy */
+}
+
+.write_review, .review {
+    width: 100%; /* Voit asettaa tämän leveyden suuremmaksi jos tarpeen */
+    max-width: 600px; /* Tai aseta tietty maksimileveys */
+    /* Muut tyylit pysyvät samoina */
+}
+
+.write_review input,
+.write_review textarea,
+.write_review button {
+    width: 100%; /* Tämä asettaa elementit täyttämään koko vanhemman leveyden */
+    margin-bottom: 5px;
+    padding: 10px; /* Voit lisätä paddingia, jotta kentät ovat korkeampia */
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+
+.write_review_btn h3 {
+    text-align: center; /* Keskitetään otsikko */
+    margin-bottom: 10px; /* Säädä etäisyyttä otsikon ja lomakkeen välillä */
+    color: #695858; /* Otsikon tekstiväri, sama kuin lomakkeen tekstissä */
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 24px; /* Säädä otsikon fonttikokoa tarpeen mukaan */
+}
+
+.write_review button:hover {
+    background-color: #444; /* Tummennettu taustaväri hover-tilassa */
 }
 
 /* Lue-ja-tulosta Admin*/
