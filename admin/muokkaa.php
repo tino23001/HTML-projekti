@@ -27,43 +27,39 @@
         </div>
     </header>
     
-    <section class="flex-kauppa">
-        <span class="material-symbols-outlined" style="font-size: 3em;"> store </span> 
-        <h1 class="otsikko_muotoilu">LOREM IPSUM </h1>
+    <section class="muokkaa_otsikko">
+        <h1 class="otsikko_muotoilu">Muokkaa tuotetta</h1>
+
+
+        <section class="muokkaa_kehys">
+            <?php
+                if (isset($_GET['tuote_id'])) {
+                    $tuote_id = $_GET['tuote_id'];
+
+                    // Haetaan tietokannasta yksittäisen tuotteen tiedot
+                    $sql = "SELECT * FROM tuotteet WHERE tuote_id = :tuote_id";
+                    $statement = $pdo->prepare($sql);
+                    $statement->bindParam(':tuote_id', $tuote_id, PDO::PARAM_INT);
+                    $statement->execute();
+                    $tuote = $statement->fetch(PDO::FETCH_ASSOC);
+
+                    // Tulosta tuotteen tiedot ja kentät
+                        echo "<img src='../uploads/" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
+                        echo '<div><p> Nimi <br><input type="text" name="n" value="' . htmlspecialchars($tuote['nimi']) . '"> </p>'; 
+                        echo '<p> Hinta <br><input type="text" name="h" value="' . htmlspecialchars($tuote['hinta']) . '"> </p>';
+                        echo '<p> Kuvaus <br><textarea class="kuvaus" name="k" placeholder="' . htmlspecialchars($tuote['kuvaus']) . '"></textarea></p>';
+                        echo '<button type="submit" value="Tallenna tuote"> Tallenna tuote </button>';
+                        echo "</div>";
+                                
+
+                } else {
+                    echo "Tuote_id-parametri puuttuu.";
+                }
+
+            ?>
+
+        </section>
     </section>
-
-    <store-page>
-        <?php
-            if (isset($_GET['tuote_id'])) {
-                $tuote_id = $_GET['tuote_id'];
-
-                // Haetaan tietokannasta yksittäisen tuotteen tiedot
-                $sql = "SELECT * FROM tuotteet WHERE tuote_id = :tuote_id";
-                $statement = $pdo->prepare($sql);
-                $statement->bindParam(':tuote_id', $tuote_id, PDO::PARAM_INT);
-                $statement->execute();
-                $tuote = $statement->fetch(PDO::FETCH_ASSOC);
-
-                // Tulosta tuotteen tiedot
-                if ($tuote) {
-                    echo "<div><img src='uploads/" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'></div>";
-                    echo '<div><h2> Nimi: <input type="text" name="n" value="' . htmlspecialchars($tuote['nimi']) . '"> </h2>'; //rivi 50
-                    echo '<p>Hinta: <input type="text" name="h" value="' . htmlspecialchars($tuote['hinta']) . '"> </p>';
-                    echo '<p>Kuvaus: <input type="text" name="k" value="' . htmlspecialchars($tuote['kuvaus']) . '"></p>';
-                    echo '<p><input type="submit" value="Tallenna tuote"></p>';
-                    echo "</div>";
-                }                
-
-            } else {
-                echo "Tuote_id-parametri puuttuu.";
-            }
-
-        ?>
-
-
-
-
-</store-page>
 
     <footer>
         <div class="footer-bottom">

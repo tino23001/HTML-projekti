@@ -474,6 +474,83 @@ store-page {
     cursor: pointer;
 }
 
+
+/*MUOKKAA TUOTETTA*/
+
+.muokkaa_otsikko {
+    margin: 10px;
+    /* padding-bottom: 2em; */
+    padding-top: 9em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+
+.muokkaa_kehys{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 65%;
+    padding: 40px;
+    border-radius: 15px;
+    border: 4px solid #000000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+    margin-left: 5%;
+    margin-right: 5%;  
+}
+
+.muokkaa_kehys div {
+    background-color: #EFE6D4;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    color: #695858;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 20px;
+}
+
+.muokkaa_kehys input {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    width: 50%;
+}
+
+
+.muokkaa_kehys img {
+    max-width: 100%;
+    width: 400px;
+    height: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 2px solid #9B968E;
+    border-radius: 10px;
+}
+
+
+.kuvaus {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    width: 80%;
+}
+
+.muokkaa_kehys button{
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+
 /*FOOTER*/
 footer {
     background-color: #494949; 
