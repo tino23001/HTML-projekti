@@ -173,9 +173,12 @@
                     <button type="submit">Lähetä</button>
                 </form>
             </div>
+            <div class="reviews-container">
+            <div class="button-container">
             <!-- Lisää nappi arvosteluiden näyttämiseen -->
-            <button id="toggleReviewsBtn" onclick="toggleReviews()">Näytä arvostelut</button>
+                <button id="toggleReviewsBtn" onclick="toggleReviews()">Näytä arvostelut</button>
             <!-- Arvosteluiden konteineri, joka on oletuksena piilotettu -->
+            </div>
             <div id="reviews" class="hidden">
             <?php foreach ($reviews as $review): ?>
             <div class="review">
@@ -185,9 +188,10 @@
                     <span class="date"><?php echo time_elapsed_string($review['paivamaara']); ?></span>
                 </div>
                 <p class="content"><?php echo htmlspecialchars($review['kommentti'], ENT_QUOTES); ?></p>
+              </div>
+             <?php endforeach; ?>
             </div>
-            <?php endforeach; ?>
-            </div>
+        </div>
             </section>
             </store-page>
 
