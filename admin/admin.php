@@ -35,10 +35,11 @@
         <!-- Tyhjää tilaa lisäämällä nostetaan footer alaspäin -->
         <div class="tyhja-tila"></div>
 </section>    
+
     <div class="footer-section">
     </div>
 
-    <div class="footer-bottom">
+    <div class="footer-bottom-admin">
             © Lohikärmes 2024
     </div>
 

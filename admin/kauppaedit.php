@@ -20,10 +20,16 @@
     </style>    
 </head>
 <?php include('../config.php'); ?>
-<body>
+
     <header class="site-header">
         <div class="site-header__wrapper">
             <a href="admin.php" class="home-logo">LOHIKÄRMES</a>
+            <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
+            <nav class="nav">
+                <a href="admin.php">ADMIN</a>
+                <a href="kauppaedit.php"><b>TUOTELISTA</b></a>
+                <a href="lisaatuote.html">TUOTTEEN LISÄYS</a>
+            </nav>
         </div>
     </header>
     
