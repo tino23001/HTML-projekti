@@ -33,50 +33,34 @@
     </section>
 
     <store-page>
-<?php
+        <?php
+            if (isset($_GET['tuote_id'])) {
+                $tuote_id = $_GET['tuote_id'];
 
-// Hae kaikki tuotteet tietokannasta
-$sql = "SELECT tuote_id, nimi, hinta, kuva FROM tuotteet";
-$statement = $pdo->prepare($sql);
-$statement->execute();
-$tuotteet = $statement->fetchAll(PDO::FETCH_ASSOC);
+                // Haetaan tietokannasta yksittäisen tuotteen tiedot
+                $sql = "SELECT * FROM tuotteet WHERE tuote_id = :tuote_id";
+                $statement = $pdo->prepare($sql);
+                $statement->bindParam(':tuote_id', $tuote_id, PDO::PARAM_INT);
+                $statement->execute();
+                $tuote = $statement->fetch(PDO::FETCH_ASSOC);
 
-foreach ($tuotteet as $tuote) {
-    echo "<div class='item' id='tuote_" . $tuote['tuote_id'] . "'>"; 
-    echo "<img src='../uploads/" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
-    echo "<h3>" . htmlspecialchars($tuote['nimi']) . "</h3>";
-    // Tuotteen kuvausta ei tulosteta
-    echo "<p>" . number_format($tuote['hinta'], 2, ',', ' ') . " €</p>";
-    echo "<a href='muokkaa.php?tuote_id=" . $tuote['tuote_id'] . "'><button>Muokkaa</button></a>";
-    echo '<button class="poistaButton">Poista</button>'; 
-    echo "</div>";
-}
+                // Tulosta tuotteen tiedot
+                if ($tuote) {
+                    echo "<div><img src='uploads/" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'></div>";
+                    echo '<div><h2> Nimi: <input type="text" name="n" value="' . htmlspecialchars($tuote['nimi']) . '"> </h2>'; //rivi 50
+                    echo '<p>Hinta: <input type="text" name="h" value="' . htmlspecialchars($tuote['hinta']) . '"> </p>';
+                    echo '<p>Kuvaus: <input type="text" name="k" value="' . htmlspecialchars($tuote['kuvaus']) . '"></p>';
+                    echo '<p><input type="submit" value="Tallenna tuote"></p>';
+                    echo "</div>";
+                }                
 
-?>
-<script>
-$(document).ready(function(){
-    $(".poistaButton").click(function() {
-        var vahvistus = confirm("Haluatko varmasti poistaa tuotteen?");
-        if (vahvistus) {
-            var tuote_id = $(this).closest('.item').attr('id').replace('tuote_', '');
-            $.post("poista_tuote.php", { tuote_id: tuote_id })
-                .done(function(response) {
-                    if(response.trim() === "success") {
-                        alert("Tuote poistettu!");
-                        $("#tuote_" + tuote_id).remove();
-                    } else {
-                        alert("Tuotetta ei voitu poistaa.");
-                    }
-                })
-                .fail(function() {
-                    alert("Virhe tuotetta poistettaessa.");
-                });
-        } else {
-            alert("Tuotetta ei poistettu.");
-        }
-    });
-});
-</script>
+            } else {
+                echo "Tuote_id-parametri puuttuu.";
+            }
+
+        ?>
+
+
 
 
 </store-page>
