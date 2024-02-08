@@ -49,7 +49,7 @@
             echo "<img src='uploads/" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
             echo "<h3>" . htmlspecialchars($tuote['nimi']) . "</h3>";
             echo "<p>€" . number_format($tuote['hinta'], 2, ',', ' ') . "</p>";
-            echo "<a href='Tuote.php?tuote_id=" . $tuote['tuote_id'] . "'><button>Tarkastele</button></a>";
+            echo "<a href='Tuote.php?tuote_id=" . $tuote['tuote_id'] . "' class='btn-shop'>Tarkastele</a>";
             echo "</div>";
         }
         ?>
