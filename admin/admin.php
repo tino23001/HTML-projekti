@@ -13,18 +13,21 @@
         session_start();
     ?>
 
-<body class="body-etusivu">
-    <header class="site-header">
-        <div class="site-header__wrapper">
-            <a href="admin.php" class="home-logo">LOHIKÄRMES</a>
-            <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
-            <nav class="nav">
-                <a href="admin.php"><b>ADMIN</b></a>
-                <a href="kauppaedit.php">TUOTELISTA</a>
-                <a href="lisaatuote.html">TUOTTEEN LISÄYS</a>
-            </nav>
-        </div>
-    </header>
+<div class="grid-container">
+    <div class="content">
+
+        <body class="body-etusivu">
+            <header class="site-header">
+                <div class="site-header__wrapper">
+                    <a href="admin.php" class="home-logo">LOHIKÄRMES</a>
+                    <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
+                    <nav class="nav">
+                        <a href="admin.php"><b>ADMIN</b></a>
+                        <a href="kauppaedit.php">TUOTELISTA</a>
+                        <a href="lisaatuote.html">TUOTTEEN LISÄYS</a>
+                    </nav>
+                </div>
+            </header>
 
 <section>
         <div class="texti">
@@ -36,11 +39,10 @@
         <div class="tyhja-tila"></div>
 </section>    
 
-    <div class="footer-section">
     </div>
-
     <div class="footer-bottom-admin">
-            © Lohikärmes 2024
+        © Lohikärmes 2024
+    </footer>
     </div>
 
 </body>

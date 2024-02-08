@@ -501,12 +501,14 @@ footer {
     font-size: 0.8em;
 }
 .footer-bottom-admin {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     background-color: #494949;
     color: #ccc; 
     text-align: center;
     padding: 25px 0;
     font-size: 0.8em;
-    position: absolute;
 }
 
 footer:before {
@@ -531,6 +533,11 @@ footer:before {
     width: 24px; 
     height: auto; 
     margin-right: 8px; 
+}
+.grid-container {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 100%;
 }
 
 /* Responsiivinen muotoilu pienille näytöille */
