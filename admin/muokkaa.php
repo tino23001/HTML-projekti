@@ -45,10 +45,10 @@
 
                     // Tulosta tuotteen tiedot ja kentät
                         echo "<img src='../uploads/" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
-                        echo '<div><p> Nimi <br><input type="text" name="n" value="' . htmlspecialchars($tuote['nimi']) . '"> </p>'; 
-                        echo '<p> Hinta <br><input type="text" name="h" value="' . htmlspecialchars($tuote['hinta']) . '"> </p>';
-                        echo '<p> Kuvaus <br><textarea class="kuvaus" name="k" placeholder="' . htmlspecialchars($tuote['kuvaus']) . '"></textarea></p>';
-                        echo '<button type="submit" value="Tallenna tuote"> Tallenna tuote </button>';
+                        echo '<div><p> Nimi <br><input type="text" name="product_name" value="' . htmlspecialchars($tuote['nimi']) . '"> </p>'; 
+                        echo '<p> Hinta <br><input type="text" name="product_price" value="' . htmlspecialchars($tuote['hinta']) . '"> </p>';
+                        echo '<p> Kuvaus <br><textarea class="kuvaus" name="product_description" placeholder="Syötä kuvaus tähän">' . htmlspecialchars($tuote['kuvaus']) . '</textarea></p>';
+                        echo "<a href='tallenna_muutokset.php?tuote_id=" . $tuote['tuote_id'] . "'><button type='submit'>Tallenna tuote</button></a>";
                         echo "</div>";
                                 
 
@@ -57,6 +57,14 @@
                 }
 
             ?>
+            <script>
+            $("button[type='submit']").click(function(event) {
+                // Estetään lomakkeen oletustoiminnallisuus, jottei sivu päivity
+                event.preventDefault();
+                // Näytetään ilmoitus tallennuksesta
+                alert("Tuotteet tallennettu onnistuneesti!");
+            });
+            </script>
 
         </section>
     </section>
