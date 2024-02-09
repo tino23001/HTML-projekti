@@ -29,7 +29,7 @@
                     <a href="admin.php" class="home-logo">LOHIKÄRMES</a>
                     <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
                     <nav class="nav">
-                        <a href="admin.php"><b>ADMIN</b></a>
+                        <a href="admin.php">ADMIN</a>
                         <a href="kauppaedit.php">TUOTELISTA</a>
                         <a href="lisaatuote.php">TUOTTEEN LISÄYS</a>
                     </nav>
@@ -59,7 +59,7 @@
                         echo '<div><p> Nimi <br><input type="text" name="product_name" value="' . htmlspecialchars($tuote['nimi']) . '"> </p>'; 
                         echo '<p> Hinta <br><input type="text" name="product_price" value="' . htmlspecialchars($tuote['hinta']) . '"> </p>';
                         echo '<p> Kuvaus <br><textarea class="kuvaus" name="product_description" placeholder="Syötä kuvaus tähän">' . htmlspecialchars($tuote['kuvaus']) . '</textarea></p>';
-                        echo '<button class="tallennaMuokkaus">Talllenna muutokset</button>';
+                        echo '<button class="tallennaMuokkaus">Tallenna muutokset</button>';
                         echo "</div>";
                                 
 
