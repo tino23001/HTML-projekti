@@ -49,7 +49,7 @@
                         echo '<div><p> Nimi <br><input type="text" name="product_name" value="' . htmlspecialchars($tuote['nimi']) . '"> </p>'; 
                         echo '<p> Hinta <br><input type="text" name="product_price" value="' . htmlspecialchars($tuote['hinta']) . '"> </p>';
                         echo '<p> Kuvaus <br><textarea class="kuvaus" name="product_description" placeholder="Syötä kuvaus tähän">' . htmlspecialchars($tuote['kuvaus']) . '</textarea></p>';
-                        echo '<button class="tallennaMuokkaus">Talllenna muutokset</button>'; //echo "<a href='tallenna_muutokset.php?tuote_id=" . $tuote['tuote_id'] . "'><button type='submit'>Tallenna tuote</button></a>";
+                        echo '<button class="tallennaMuokkaus">Talllenna muutokset</button>';
                         echo "</div>";
                                 
 
@@ -61,6 +61,12 @@
             <script>
                 $(document).ready(function(){
                     $(".tallennaMuokkaus").click(function() {
+                        // Tarkista, että kaikki kentät ovat täytetty
+                        var nimi = $("input[name='product_name']").val();
+                        var hinta = $("input[name='product_price']").val();
+                        var kuvaus = $("textarea[name='product_description']").val();
+
+
                         var vahvistus = confirm("Haluatko varmasti tallentaa muutokset?");
                         if (vahvistus) {
                             var tuote_id = <?php echo $tuote_id; ?>;
@@ -85,8 +91,8 @@
                         }
                     });
                 });
-
             </script>
+
 
 
         </section>

@@ -4,12 +4,13 @@
     if(isset($_POST['tuote_id'])) {
 
         $tuote_id = $_POST['tuote_id'];
-        $nimi = $_POST['product_name'];
-        $hinta = $_POST['product_price'];
-        $kuvaus = $_POST['product_description'];
+        $nimi = htmlspecialchars($_POST['product_name']);
+        $hinta = filter_var($_POST['product_price'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+        $kuvaus = htmlspecialchars($_POST['product_description']);
 
         $sql = "UPDATE tuotteet SET nimi = ?, hinta = ?, kuvaus = ? WHERE tuote_id = ?";
         $statement = $pdo->prepare($sql);
+        $count = $stmt->fetchColumn();
 
         // Suorita SQL-lause
         if ($statement->execute([$nimi, $hinta, $kuvaus, $tuote_id])) {
