@@ -32,6 +32,7 @@
 
 
         <section class="muokkaa_kehys">
+
             <?php
                 if (isset($_GET['tuote_id'])) {
                     $tuote_id = $_GET['tuote_id'];
@@ -48,7 +49,7 @@
                         echo '<div><p> Nimi <br><input type="text" name="product_name" value="' . htmlspecialchars($tuote['nimi']) . '"> </p>'; 
                         echo '<p> Hinta <br><input type="text" name="product_price" value="' . htmlspecialchars($tuote['hinta']) . '"> </p>';
                         echo '<p> Kuvaus <br><textarea class="kuvaus" name="product_description" placeholder="Syötä kuvaus tähän">' . htmlspecialchars($tuote['kuvaus']) . '</textarea></p>';
-                        echo "<a href='tallenna_muutokset.php?tuote_id=" . $tuote['tuote_id'] . "'><button type='submit'>Tallenna tuote</button></a>";
+                        echo '<button class="tallennaMuokkaus">Talllenna muutokset</button>'; //echo "<a href='tallenna_muutokset.php?tuote_id=" . $tuote['tuote_id'] . "'><button type='submit'>Tallenna tuote</button></a>";
                         echo "</div>";
                                 
 
@@ -58,13 +59,35 @@
 
             ?>
             <script>
-            $("button[type='submit']").click(function(event) {
-                // Estetään lomakkeen oletustoiminnallisuus, jottei sivu päivity
-                event.preventDefault();
-                // Näytetään ilmoitus tallennuksesta
-                alert("Tuotteet tallennettu onnistuneesti!");
-            });
+                $(document).ready(function(){
+                    $(".tallennaMuokkaus").click(function() {
+                        var vahvistus = confirm("Haluatko varmasti tallentaa muutokset?");
+                        if (vahvistus) {
+                            var tuote_id = <?php echo $tuote_id; ?>;
+                            var nimi = $("input[name='product_name']").val();
+                            var hinta = $("input[name='product_price']").val();
+                            var kuvaus = $("textarea[name='product_description']").val();
+                            
+                            $.post("tallenna_muutokset.php", { tuote_id: tuote_id, product_name: nimi, product_price: hinta, product_description: kuvaus })
+                                .done(function(response) {
+                                    if(response.trim() === "success") {
+                                        alert("Tuote muokattu onnistuneesti!");
+                                        // Voit tässä vaiheessa päivittää sivun tai tehdä muita toimenpiteitä tarpeen mukaan
+                                    } else {
+                                        alert("Tuotetta ei voitu muokata.");
+                                    }
+                                })
+                                .fail(function() {
+                                    alert("Virhe tuotetta muokatessa.");
+                                });
+                        } else {
+                            alert("Tuotetta ei muokattu.");
+                        }
+                    });
+                });
+
             </script>
+
 
         </section>
     </section>
