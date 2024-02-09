@@ -28,7 +28,7 @@
             <nav class="nav">
                 <a href="admin.php">ADMIN</a>
                 <a href="kauppaedit.php"><b>TUOTELISTA</b></a>
-                <a href="lisaatuote.html">TUOTTEEN LISÄYS</a>
+                <a href="lisaatuote.php">TUOTTEEN LISÄYS</a>
             </nav>
         </div>
     </header>
@@ -87,11 +87,9 @@ $(document).ready(function(){
 
 </store-page>
 
-    <footer>
-        <div class="footer-bottom">
+        <div class="footer-bottom-admin2">
             © Lohikärmes 2024
         </div>
-    </footer>
     
     <script>
       function toggleMenu() {

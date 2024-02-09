@@ -604,6 +604,16 @@ footer {
     padding: 25px 0;
     font-size: 0.8em;
 }
+.footer-bottom-admin2 {
+    position: static;
+    bottom: 0;
+    width: 100%;
+    background-color: #494949;
+    color: #ccc; 
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.8em;
+}
 
 footer:before {
     content: "";

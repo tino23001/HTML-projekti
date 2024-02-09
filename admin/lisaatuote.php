@@ -81,11 +81,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="site-header__wrapper">
-            <a href="admin.php" class="home-logo">LOHIKÄRMES</a>
-        </div>
-    </header>
+<div class="grid-container">
+    <div class="content">
+
+            <header class="site-header">
+                <div class="site-header__wrapper">
+                    <a href="admin.php" class="home-logo">LOHIKÄRMES</a>
+                    <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
+                    <nav class="nav">
+                        <a href="admin.php"><b>ADMIN</b></a>
+                        <a href="kauppaedit.php">TUOTELISTA</a>
+                        <a href="lisaatuote.php">TUOTTEEN LISÄYS</a>
+                    </nav>
+                </div>
+            </header>
+    </div>
 
     <div class="contact-container">
 
@@ -108,10 +118,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button type="submit">Tallenna tuote</button>
             </form>
         </section>
-        </div>
-            <footer class="footer-bottom-admin">
+
+    </div>
+
+            <div class="footer-bottom-admin">
                 © Lohikärmes 2024
-            </footer>
             </div>
+</div>
+
 </body>
 </html>

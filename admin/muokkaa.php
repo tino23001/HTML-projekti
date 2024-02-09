@@ -21,11 +21,21 @@
 </head>
 <?php include('../config.php'); ?>
 <body>
-    <header class="site-header">
-        <div class="site-header__wrapper">
-            <a href="admin.php" class="home-logo">LOHIKÄRMES</a>
-        </div>
-    </header>
+<div class="grid-container">
+    <div class="content">
+
+            <header class="site-header">
+                <div class="site-header__wrapper">
+                    <a href="admin.php" class="home-logo">LOHIKÄRMES</a>
+                    <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
+                    <nav class="nav">
+                        <a href="admin.php"><b>ADMIN</b></a>
+                        <a href="kauppaedit.php">TUOTELISTA</a>
+                        <a href="lisaatuote.php">TUOTTEEN LISÄYS</a>
+                    </nav>
+                </div>
+            </header>
+    </div>
     
     <section class="muokkaa_otsikko">
         <h1 class="otsikko_muotoilu">Muokkaa tuotetta</h1>
@@ -98,11 +108,10 @@
         </section>
     </section>
 
-    <footer>
-        <div class="footer-bottom">
-            © Lohikärmes 2024
-        </div>
-    </footer>
+    <div class="footer-bottom-admin">
+                © Lohikärmes 2024
+    </div>
+</div>
     
     <script>
       function toggleMenu() {

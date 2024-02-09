@@ -24,7 +24,7 @@
                     <nav class="nav">
                         <a href="admin.php"><b>ADMIN</b></a>
                         <a href="kauppaedit.php">TUOTELISTA</a>
-                        <a href="lisaatuote.html">TUOTTEEN LISÄYS</a>
+                        <a href="lisaatuote.php">TUOTTEEN LISÄYS</a>
                     </nav>
                 </div>
             </header>
@@ -33,7 +33,7 @@
                 <div class="texti">
                         <h1 class="otsikko_muotoilu">Adminsivu</h1>
                         <p><a href="kauppaedit.php">Tuotelista</a><br></p>
-                        <p><a href="lisaatuote.html">Lisää tuote</a><br></p>
+                        <p><a href="lisaatuote.php">Lisää tuote</a><br></p>
                 </div>
                 <!-- Tyhjää tilaa lisäämällä nostetaan footer alaspäin -->
                 <div class="tyhja-tila"></div>
@@ -42,7 +42,6 @@
             </div>
             <div class="footer-bottom-admin">
                 © Lohikärmes 2024
-            </footer>
             </div>
 
     </div>
