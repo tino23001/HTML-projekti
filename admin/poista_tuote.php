@@ -6,6 +6,7 @@ if(isset($_POST['tuote_id'])) {
         // Poistetaan tuote tietokannasta
         $tuote_id = $_POST['tuote_id'];
         $sql = "DELETE FROM tuotteet WHERE tuote_id = :tuote_id";
+        $sql = "DELETE FROM arvostelut WHERE tuote_id = :tuote_id";
         $statement = $pdo->prepare($sql);
         $statement->execute([':tuote_id' => $tuote_id]);
 
