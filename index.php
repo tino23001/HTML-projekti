@@ -59,7 +59,7 @@
              echo "</div>";
          }
          ?>
-        ?>
+        
     </div>
 </section>
 

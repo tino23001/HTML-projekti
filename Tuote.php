@@ -1,3 +1,40 @@
+<?php 
+session_start(); 
+include('config.php'); 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['tuote_id'])) {
+    $kayttajanimi = trim($_POST['kayttajanimi']);
+    $kommentti = trim($_POST['kommentti']);
+    $arvostelu = filter_var($_POST['arvostelu'], FILTER_SANITIZE_NUMBER_INT);
+
+    $kayttajanimiValid = preg_match('/^[a-zA-Z0-9_-]+$/', $kayttajanimi);
+    $kommenttiValid = !empty($kommentti) && strlen($kommentti) <= 500 && preg_match("/^[a-zA-Z0-9\sÄÖäö.,!:\?\-+\"']{1,500}$/", $kommentti);
+    $arvosteluValid = filter_var($arvostelu, FILTER_VALIDATE_INT, ["options" => ["min_range" => 1, "max_range" => 5]]);
+
+    if ($kayttajanimiValid && $kommenttiValid && $arvosteluValid) {
+        $sanitizedKayttajanimi = htmlspecialchars($kayttajanimi, ENT_QUOTES, 'UTF-8');
+        $sanitizedKommentti = htmlspecialchars($kommentti, ENT_QUOTES, 'UTF-8');
+        
+        $stmt = $pdo->prepare('INSERT INTO arvostelut (tuote_id, kayttajanimi, kommentti, arvostelu, paivamaara) VALUES (?,?,?,?,NOW())');
+        $stmt->execute([$_GET['tuote_id'], $sanitizedKayttajanimi, $sanitizedKommentti, $arvostelu]);
+
+        $_SESSION['feedback_message'] = 'Arvostelusi on lähetetty!';
+    } else {
+        // Eriytetään virheviestit käyttäjänimelle ja kommentille
+        if (!$kayttajanimiValid) {
+            $_SESSION['error_message_user'] = 'Tarkista, että kaikki kentät on täytetty oikein. Käyttäjänimi saa sisältää vain kirjaimia, numeroita sekä alaviivoja (_) ja väliviivoja (-).';
+        }
+        if (!$kommenttiValid) {
+            $_SESSION['error_message_comment'] = 'Tarkista, että kaikki kentät on täytetty oikein. Kommentti saa sisältää kirjaimia, numeroita sekä seuraavia erikoismerkkejä: . , ! : ? - + " ja se saa olla 500 merkkiä pitkä.';
+        }
+    }
+    header('Location: Tuote.php?tuote_id=' . $_GET['tuote_id']);
+    exit;
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -12,13 +49,13 @@
             font-family: 'Material Symbols Outlined', sans-serif;
             font-size: 2em; /* Voit säätää fonttikokoa tarpeidesi mukaan */
         }
-        
+         /* Lisätty tyylejä arvosteluiden piilottamiseen/näyttämiseen */
          .hidden {
             display: none;
         }
     </style>    
 </head>
-<?php include('config.php'); ?>
+
 <body>
 
 
@@ -111,37 +148,9 @@
         return $string ? implode(', ', $string) . ' ago' : 'just now';
             }
 
+            
 
-
-            session_start(); 
-
-        // Arvostelun käsittely
-            if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['tuote_id'])) {
-                // Sanitaatio
-                $kayttajanimi = htmlspecialchars($_POST['kayttajanimi']);
-                $kommentti = htmlspecialchars($_POST['kommentti']);
-                $arvostelu = filter_var($_POST['arvostelu'], FILTER_SANITIZE_NUMBER_INT);
-
-                // Validaatio
-                if (!empty($kayttajanimi) && !empty($kommentti) && filter_var($arvostelu, FILTER_VALIDATE_INT, ["options" => ["min_range" => 1, "max_range" => 5]])) {
-                    // Jos syötteet ovat kelvollisia, jatketaan käsittelyä
-                    $stmt = $pdo->prepare('INSERT INTO arvostelut (tuote_id, kayttajanimi, kommentti, arvostelu, paivamaara) VALUES (?,?,?,?,NOW())');
-                    $stmt->execute([$_GET['tuote_id'], $kayttajanimi, $kommentti, $arvostelu]);
-
-                    // Aseta sessiomuuttuja ilmoitusta varten
-                    $_SESSION['arvostelu_lahetetty'] = true;
-
-                    // Ohjaa käyttäjä samaan sivuun, mutta GET-metodilla
-                    header('Location: Tuote.php?tuote_id=' . $_GET['tuote_id']);
-                    exit;
-                } else {
-                    // Aseta virheviesti, jos validaatio epäonnistuu
-                 echo 'Tarkista, että kaikki kentät on täytetty oikein ja arvostelu on välillä 1-5.';
-                
-             }
-            }
-
-            // Sivun alkuun
+        
             if (isset($_SESSION['arvostelu_lahetetty'])) {
                 echo 'Arvostelusi on lähetetty!';
                 unset($_SESSION['arvostelu_lahetetty']); // Poista ilmoitus näytön jälkeen
@@ -159,10 +168,17 @@
                     $reviews_info = $stmt->fetch(PDO::FETCH_ASSOC);
             } else {
                 exit('Please provide the product ID.');
-            }       
-            ?>
+            }  
 
-
+             if (isset($_SESSION['error_message_user'])): ?>
+                <div class="error_message"><?php echo $_SESSION['error_message_user']; ?></div>
+                <?php unset($_SESSION['error_message_user']); ?>
+            <?php endif; ?>
+            
+            <?php if (isset($_SESSION['error_message_comment'])): ?>
+                <div class="error_message"><?php echo $_SESSION['error_message_comment']; ?></div>
+                <?php unset($_SESSION['error_message_comment']); ?>
+            <?php endif; ?>
 
             <div class="write_review_btn"><h3>Kirjoita arvostelu </h3></div>
             <div class="write_review">
