@@ -34,8 +34,8 @@
         <section>
                 <div class="texti">
                         <h1 class="otsikko_muotoilu">Adminsivu</h1>
-                        <p><a href="kauppaedit.php">Tuotelista</a><br></p>
-                        <p><a href="lisaatuote.php">Lisää tuote</a><br></p>
+                        <a href="kauppaedit.php" class="btn-shop">Tuotelista</a><br>
+                        <a href="lisaatuote.php" class="btn-shop">Lisää tuote</a>
                 </div>
                 <!-- Tyhjää tilaa lisäämällä nostetaan footer alaspäin -->
                 <div class="tyhja-tila"></div>

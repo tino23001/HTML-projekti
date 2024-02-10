@@ -136,6 +136,7 @@ nav a:hover {
     cursor: pointer;
     border-radius: 10px; /* Pyöristää napin reunat */
     margin-top: 10px; /* Lisää tilaa napin yläpuolelle */
+    float: inherit;
 }
 
 .btn-shop:hover {
@@ -693,6 +694,7 @@ footer:before {
         margin-left: 10%;
         float: left;
     }
+
 }
 
 
