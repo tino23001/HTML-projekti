@@ -2,25 +2,32 @@
 session_start(); 
 include('config.php'); 
 
+// Tarkistaa, että lomake on lähetetty POST-metodilla ja että tuote_id on asetettu
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['tuote_id'])) {
+    // Trimmaa whitespace pois käyttäjänimen ja kommentin alusta ja lopusta
     $kayttajanimi = trim($_POST['kayttajanimi']);
     $kommentti = trim($_POST['kommentti']);
+    // Puhdistaa arvostelun numerona, varmistaen että se on turvallinen käyttää
     $arvostelu = filter_var($_POST['arvostelu'], FILTER_SANITIZE_NUMBER_INT);
-
+    
+    // Tarkistetaan, että käyttäjänimi, kommentti ja arvostelut ovat kelvollisia
     $kayttajanimiValid = preg_match('/^[a-zA-Z0-9_-]+$/', $kayttajanimi);
     $kommenttiValid = !empty($kommentti) && strlen($kommentti) <= 500 && preg_match("/^[a-zA-Z0-9\sÄÖäö.,!:\?\-+\"']{1,500}$/", $kommentti);
     $arvosteluValid = filter_var($arvostelu, FILTER_VALIDATE_INT, ["options" => ["min_range" => 1, "max_range" => 5]]);
 
     if ($kayttajanimiValid && $kommenttiValid && $arvosteluValid) {
+        // Sanitoidaan käyttäjänimi ja kommentti ennen tietokantaan tallentamista
         $sanitizedKayttajanimi = htmlspecialchars($kayttajanimi, ENT_QUOTES, 'UTF-8');
         $sanitizedKommentti = htmlspecialchars($kommentti, ENT_QUOTES, 'UTF-8');
         
+        // SQL-lauseen valmistelu ja suoritus
         $stmt = $pdo->prepare('INSERT INTO arvostelut (tuote_id, kayttajanimi, kommentti, arvostelu, paivamaara) VALUES (?,?,?,?,NOW())');
         $stmt->execute([$_GET['tuote_id'], $sanitizedKayttajanimi, $sanitizedKommentti, $arvostelu]);
-
+        
+        //onnistumisviestin asetus
         $_SESSION['feedback_message'] = 'Arvostelusi on lähetetty!';
     } else {
-        // Eriytetään virheviestit käyttäjänimelle ja kommentille
+        // Virheviestien asetus
         if (!$kayttajanimiValid) {
             $_SESSION['error_message_user'] = 'Tarkista, että kaikki kentät on täytetty oikein. Käyttäjänimi saa sisältää vain kirjaimia, numeroita sekä alaviivoja (_) ja väliviivoja (-).';
         }
@@ -28,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['tuote_id'])) {
             $_SESSION['error_message_comment'] = 'Tarkista, että kaikki kentät on täytetty oikein. Kommentti saa sisältää kirjaimia, numeroita sekä seuraavia erikoismerkkejä: . , ! : ? - + " ja se saa olla 500 merkkiä pitkä.';
         }
     }
+    // Uudelleenohjataan käyttäjä takaisin tuotesivulle, estetään lomakkeen uudelleenlähetys
     header('Location: Tuote.php?tuote_id=' . $_GET['tuote_id']);
     exit;
 }
@@ -47,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['tuote_id'])) {
     <style>
         .material-symbols-outlined {
             font-family: 'Material Symbols Outlined', sans-serif;
-            font-size: 2em; /* Voit säätää fonttikokoa tarpeidesi mukaan */
+            font-size: 2em; 
         }
          /* Lisätty tyylejä arvosteluiden piilottamiseen/näyttämiseen */
          .hidden {
@@ -169,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['tuote_id'])) {
             } else {
                 exit('Please provide the product ID.');
             }  
-
+                //error-viestien lähettäminen
              if (isset($_SESSION['error_message_user'])): ?>
                 <div class="error_message"><?php echo $_SESSION['error_message_user']; ?></div>
                 <?php unset($_SESSION['error_message_user']); ?>
