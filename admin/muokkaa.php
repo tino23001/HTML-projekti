@@ -71,27 +71,34 @@
             ?>
 <script>
         $(document).ready(function(){
-        function validateInput(name, price, description) {
-            const nameRegex = /^[a-zA-Z0-9\s]{1,30}$/;
-            const priceRegex = /^\d+(\.\d{1,2})?$/;
+            function validateInput(name, price, description) {
+                const nameRegex = /^[a-zA-Z0-9\s]{1,30}$/;
+                const priceRegex = /^\d+(\.\d{1,2})?$/;
+                const descriptionRegex = /^[a-zA-Z0-9\s.,!]{1,500}$/;
 
-            if (!nameRegex.test(name)) {
-                alert("Nimen tulee olla 1-30 merkkiä pitkä ja saa sisältää vain kirjaimia, numeroita ja välilyöntejä.");
-                return false;
+                if (!nameRegex.test(name)) {
+                    alert("Nimen tulee olla 1-30 merkkiä pitkä ja saa sisältää vain kirjaimia, numeroita ja välilyöntejä.");
+                    return false;
+                }
+
+                if (!priceRegex.test(price) || parseFloat(price) <= 0) {
+                    alert("Hinnan tulee olla positiivinen numero. Desimaalilukuja sallitaan kaksi.");
+                    return false;
+                }
+
+                if (description.length > 500) {
+                    alert("Kuvauksen tulee olla enintään 500 merkkiä pitkä.");
+                    return false;
+                }
+
+                if (!descriptionRegex.test(description)) {
+                    alert("Kuvauksen tulee sisältää kirjaimia, numeroita, välilyöntejä sekä pilkkuja, pisteitä ja huutomerkit.");
+                    return false;
+                }
+
+                return true;
             }
 
-            if (!priceRegex.test(price) || parseFloat(price) <= 0) {
-                alert("Hinnan tulee olla positiivinen numero. Desimaalilukuja sallitaan kaksi.");
-                return false;
-            }
-
-            if (description.length > 500) {
-                alert("Kuvauksen tulee olla enintään 500 merkkiä pitkä.");
-                return false;
-            }
-
-            return true;
-        }
 
         $(".tallennaMuokkaus").click(function() {
     var nimi = $("input[name='product_name']").val().trim();

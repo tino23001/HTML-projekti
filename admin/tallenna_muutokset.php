@@ -24,10 +24,12 @@ if(isset($_POST['tuote_id'], $_POST['product_name'])) {
     }
 
     // Validointi
-    if (!preg_match('/^[a-zA-Z0-9\s]{1,30}$/', $nimi) || !is_numeric($hinta) || $hinta <= 0 || strlen($kuvaus) > 500) {
+    if (!preg_match('/^[a-zA-Z0-9\sÄÖäö]{1,30}$/', $nimi) || !is_numeric($hinta) || $hinta <= 0 || strlen($kuvaus) > 500 || !preg_match('/^[a-zA-Z0-9\sÄÖäö.,!]{1,500}$/', $kuvaus)) {
         echo "Invalid input";
         exit;
     }
+
+
 
     // Jos tuote_id on uuden tuotteen lisäyksessä, muokkaa SQL-lauseet vastaavasti
     $sql = "UPDATE tuotteet SET nimi = ?, hinta = ?, kuvaus = ? WHERE tuote_id = ?";
