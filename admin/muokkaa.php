@@ -69,52 +69,60 @@
                 }
 
             ?>
-            <script>
-                $(document).ready(function(){
-                    $(".tallennaMuokkaus").click(function() {
-                        // Tarkista, että kaikki kentät ovat täytetty
-                        var nimi = $("input[name='product_name']").val();
-                        var hinta = $("input[name='product_price']").val();
-                        var kuvaus = $("textarea[name='product_description']").val();
-                        //Ongelma tässä osuudessa
-                        if (nimi === '' || hinta === '' || kuvaus === '' || $count > 0 || !/^[a-zA-Z0-9]{1,30}$/.test($productName) || $productPrice <= 0 || isNaN($productPrice)) {
-                            if (nimi === '' || hinta === '' || kuvaus === '') {
-                                alert("Kaikki kentät on täytettävä ennen muutosten tallentamista.");
-                            } else if ($count > 0) { 
-                                alert("Tuote nimellä '{$productName}' on jo olemassa. Valitse toinen nimi.");
-                            } else if (!/^[a-zA-Z0-9]{1,30}$/.test($productName)) {
-                                alert("Tarkista tuotteen nimi. Nimen pituus ei saa ylittää 30 merkkiä ja sen tulee sisältää vain kirjaimia ja numeroita.");
-                            } else if ($productPrice <= 0 || isNaN($productPrice)) {
-                                alert(" Hinnan tulee olla positiivinen numero.");
-                            }
-                            return;
-                        }
-                        //Ongelma loppuu
-                        var vahvistus = confirm("Haluatko varmasti tallentaa muutokset?");
-                        if (vahvistus) {
-                            var tuote_id = <?php echo $tuote_id; ?>;
-                            var nimi = $("input[name='product_name']").val();
-                            var hinta = $("input[name='product_price']").val();
-                            var kuvaus = $("textarea[name='product_description']").val();
-                            
-                            $.post("tallenna_muutokset.php", { tuote_id: tuote_id, product_name: nimi, product_price: hinta, product_description: kuvaus })
-                                .done(function(response) {
-                                    if(response.trim() === "success") {
-                                        alert("Tuote muokattu onnistuneesti!");
-                                        // Voit tässä vaiheessa päivittää sivun tai tehdä muita toimenpiteitä tarpeen mukaan
-                                    } else {
-                                        alert("Tuotetta ei voitu muokata.");
-                                    }
-                                })
-                                .fail(function() {
-                                    alert("Virhe tuotetta muokatessa.");
-                                });
-                        } else {
-                            alert("Tuotetta ei muokattu.");
-                        }
-                    });
-                });
-            </script>
+<script>
+        $(document).ready(function(){
+        function validateInput(name, price, description) {
+            const nameRegex = /^[a-zA-Z0-9\s]{1,30}$/;
+            const priceRegex = /^\d+(\.\d{1,2})?$/;
+
+            if (!nameRegex.test(name)) {
+                alert("Nimen tulee olla 1-30 merkkiä pitkä ja saa sisältää vain kirjaimia, numeroita ja välilyöntejä.");
+                return false;
+            }
+
+            if (!priceRegex.test(price) || parseFloat(price) <= 0) {
+                alert("Hinnan tulee olla positiivinen numero. Desimaalilukuja sallitaan kaksi.");
+                return false;
+            }
+
+            if (description.length > 500) {
+                alert("Kuvauksen tulee olla enintään 500 merkkiä pitkä.");
+                return false;
+            }
+
+            return true;
+        }
+
+        $(".tallennaMuokkaus").click(function() {
+    var nimi = $("input[name='product_name']").val().trim();
+    var hinta = $("input[name='product_price']").val().trim();
+    var kuvaus = $("textarea[name='product_description']").val().trim();
+
+    $.post("tallenna_muutokset.php", {
+        tuote_id: <?php echo json_encode($tuote_id); ?>,
+        product_name: nimi,
+        product_price: hinta,
+        product_description: kuvaus
+    })
+    .done(function(response) {
+    if (response.includes("on jo käytössä")) {
+        alert("Tuotenimi '" + nimi + "' on jo käytössä. Valitse toinen nimi.");
+    } else if (response.trim() === "success") {
+        alert("Tuote muokattu onnistuneesti!");
+        // Tässä voit ohjata käyttäjän toiselle sivulle tai päivittää sivun sisältöä.
+    } else {
+        // Tämä haara käsittelee muita mahdollisia virheitä.
+        alert("Tuotetta ei voitu muokata. Virhe: " + response);
+    }
+})
+    .fail(function() {
+        alert("Virhe tuotetta muokatessa. Yhteysvirhe.");
+    });
+});
+    });
+</script>
+
+
 
 
 

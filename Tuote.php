@@ -12,7 +12,7 @@
             font-family: 'Material Symbols Outlined', sans-serif;
             font-size: 2em; /* Voit säätää fonttikokoa tarpeidesi mukaan */
         }
-         /* Lisätty tyylejä arvosteluiden piilottamiseen/näyttämiseen */
+        
          .hidden {
             display: none;
         }
