@@ -33,25 +33,32 @@
     </section>    
 
     <section>        
-    <h2 class="top-products-title">KUUKAUDEN SUOSITUIMMAT</h2>
+    <h2 class="top-products-title">PARHAITEN ARVOSTELLUT</h2>
     
     <div class="top-products">
         <?php
          include('config.php');
-        // Hae tuotteet, joiden tuote_id ovat 4, 5 ja 7
-        $sql = "SELECT tuote_id, nimi, hinta, kuva FROM tuotteet WHERE tuote_id IN (4, 5, 7)";
-        $statement = $pdo->prepare($sql);
-        $statement->execute();
-        $tuotteet = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($tuotteet as $tuote) {
-            echo "<div class='top-product-item'>";
-            echo "<img src='uploads/" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
-            echo "<h3>" . htmlspecialchars($tuote['nimi']) . "</h3>";
-            echo "<p>€" . number_format($tuote['hinta'], 2, ',', ' ') . "</p>";
-            echo "<a href='Tuote.php?tuote_id=" . $tuote['tuote_id'] . "' class='btn-shop'>Tarkastele</a>";
-            echo "</div>";
-        }
+         // Hae kolme parhaiten arvosteltua tuotetta
+         $sql = "SELECT t.tuote_id, t.nimi, t.hinta, t.kuva, AVG(a.arvostelu) as keskiarvo
+         FROM tuotteet t
+         JOIN arvostelut a ON t.tuote_id = a.tuote_id
+         GROUP BY t.tuote_id
+         ORDER BY keskiarvo DESC
+         LIMIT 3";
+         $statement = $pdo->prepare($sql);
+         $statement->execute();
+         $tuotteet = $statement->fetchAll(PDO::FETCH_ASSOC);
+         
+         foreach ($tuotteet as $tuote) {
+             echo "<div class='top-product-item'>";
+             echo "<img src='uploads/" . htmlspecialchars($tuote['kuva']) . "' alt='" . htmlspecialchars($tuote['nimi']) . "'>";
+             echo "<h3>" . htmlspecialchars($tuote['nimi']) . "</h3>";
+             echo "<p>€" . number_format($tuote['hinta'], 2, ',', ' ') . "</p>";
+             echo "<a href='Tuote.php?tuote_id=" . $tuote['tuote_id'] . "' class='btn-shop'>Tarkastele</a>";
+             echo "</div>";
+         }
+         ?>
         ?>
     </div>
 </section>
