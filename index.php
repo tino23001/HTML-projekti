@@ -38,8 +38,8 @@
     <div class="top-products">
         <?php
          include('config.php');
-        // Hae tuotteet, joiden tuote_id ovat 1, 5 ja 6
-        $sql = "SELECT tuote_id, nimi, hinta, kuva FROM tuotteet WHERE tuote_id IN (1, 5, 6)";
+        // Hae tuotteet, joiden tuote_id ovat 4, 5 ja 7
+        $sql = "SELECT tuote_id, nimi, hinta, kuva FROM tuotteet WHERE tuote_id IN (4, 5, 7)";
         $statement = $pdo->prepare($sql);
         $statement->execute();
         $tuotteet = $statement->fetchAll(PDO::FETCH_ASSOC);
