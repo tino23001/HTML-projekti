@@ -21,6 +21,7 @@
 </head>
 <?php include('../config.php'); ?>
 <body>
+ 
 <div class="grid-container">
     <div class="content">
 
@@ -75,8 +76,20 @@
                         var nimi = $("input[name='product_name']").val();
                         var hinta = $("input[name='product_price']").val();
                         var kuvaus = $("textarea[name='product_description']").val();
-
-
+                        //Ongelma tässä osuudessa
+                        if (nimi === '' || hinta === '' || kuvaus === '' || $count > 0 || !/^[a-zA-Z0-9]{1,30}$/.test($productName) || $productPrice <= 0 || isNaN($productPrice)) {
+                            if (nimi === '' || hinta === '' || kuvaus === '') {
+                                alert("Kaikki kentät on täytettävä ennen muutosten tallentamista.");
+                            } else if ($count > 0) { 
+                                alert("Tuote nimellä '{$productName}' on jo olemassa. Valitse toinen nimi.");
+                            } else if (!/^[a-zA-Z0-9]{1,30}$/.test($productName)) {
+                                alert("Tarkista tuotteen nimi. Nimen pituus ei saa ylittää 30 merkkiä ja sen tulee sisältää vain kirjaimia ja numeroita.");
+                            } else if ($productPrice <= 0 || isNaN($productPrice)) {
+                                alert(" Hinnan tulee olla positiivinen numero.");
+                            }
+                            return;
+                        }
+                        //Ongelma loppuu
                         var vahvistus = confirm("Haluatko varmasti tallentaa muutokset?");
                         if (vahvistus) {
                             var tuote_id = <?php echo $tuote_id; ?>;
