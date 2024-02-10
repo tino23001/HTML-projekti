@@ -142,10 +142,9 @@
         </section>
     </section>
 
-    <div class="footer-bottom-admin">
-                © Lohikärmes 2024
+    <div class="footer-bottom-admin2">
+            © Lohikärmes 2024
     </div>
-</div>
     
     <script>
       function toggleMenu() {
