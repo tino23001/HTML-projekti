@@ -18,12 +18,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['message'] = "Tuote nimellä '{$productName}' on jo olemassa. Valitse toinen nimi.";
         header('Location: ' . $_SERVER['PHP_SELF']);
         exit();
-    } elseif (!preg_match('/^[a-zA-Z0-9]+$/', $productName) || strlen($productName) > 30) {
+    } elseif (!preg_match('/^[a-zA-Z0-9\sÄÖäö]+$/', $productName) || strlen($productName) > 30) {
         $_SESSION['message'] = "Virhe! Tarkista tuotteen nimi. Nimen pituus ei saa ylittää 30 merkkiä ja sen tulee sisältää vain kirjaimia ja numeroita.";
         header('Location: ' . $_SERVER['PHP_SELF']);
         exit();
     } elseif ($productPrice <= 0 || !is_numeric($productPrice)) {
         $_SESSION['message'] = "Virhe! Hinnan tulee olla positiivinen numero.";
+        header('Location: ' . $_SERVER['PHP_SELF']);
+        exit();
+    } elseif (!preg_match('/^[a-zA-Z0-9\sÄÖäö.,!]{1,500}+$/', $productDescription) ) {
+        $_SESSION['message'] = "Virhe! Tarkista tuotteen kuvaus. Kuvauksen pituus ei saa ylittää 500 merkkiä ja se saa sisältää vain kirjaimia ja numeroita. Sallitut merkit ovat '.,!'";
         header('Location: ' . $_SERVER['PHP_SELF']);
         exit();
     }
