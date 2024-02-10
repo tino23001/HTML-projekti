@@ -1,3 +1,7 @@
+<?php
+       session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -9,9 +13,7 @@
 </head>
 <body>
 
-    <?php
-        session_start();
-    ?>
+
 
 <div class="grid-container">
     <div class="content">

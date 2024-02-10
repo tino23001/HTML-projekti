@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('config.php');
 
 // Otetaan vastaan tuote_id, jonka perusteella poistetaan tuote tietokannasta

@@ -1,3 +1,7 @@
+<?php 
+session_start(); 
+include('config.php');
+?>
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -37,7 +41,7 @@
     
     <div class="top-products">
         <?php
-         include('config.php');
+
 
          // Hae kolme parhaiten arvosteltua tuotetta
          $sql = "SELECT t.tuote_id, t.nimi, t.hinta, t.kuva, AVG(a.arvostelu) as keskiarvo

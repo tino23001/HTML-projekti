@@ -1,9 +1,13 @@
+<?php 
+session_start();
+include('config.php'); 
+?>
 <!DOCTYPE html>
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lohikärmes Kauppa</title>
+    <title>Muokkaa Tuotetta</title>
     <link rel="stylesheet" href="../styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&family=Snippet&family=Source+Sans+3&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -19,7 +23,7 @@
         }
     </style>    
 </head>
-<?php include('../config.php'); ?>
+
 <body>
  
 <div class="grid-container">

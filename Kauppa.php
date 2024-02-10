@@ -1,3 +1,8 @@
+<?php 
+session_start(); 
+include('config.php');
+?>
+
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -14,7 +19,7 @@
         }
     </style>    
 </head>
-<?php include('config.php'); ?>
+
 <body>
     <header class="site-header">
         <div class="site-header__wrapper">
