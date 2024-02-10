@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['tuote_id'])) {
     $arvostelu = filter_var($_POST['arvostelu'], FILTER_SANITIZE_NUMBER_INT);
     
     // Tarkistetaan, että käyttäjänimi, kommentti ja arvostelut ovat kelvollisia
-    $kayttajanimiValid = preg_match('/^[a-zA-Z0-9_-]+$/', $kayttajanimi);
+    $kayttajanimiValid = preg_match('/^[a-zA-Z0-9äöåÄÖÅ_-]+$/', $kayttajanimi);
     $kommenttiValid = !empty($kommentti) && strlen($kommentti) <= 500 && preg_match("/^[a-zA-Z0-9\sÄÖäö.,!:\?\-+\"']{1,500}$/", $kommentti);
     $arvosteluValid = filter_var($arvostelu, FILTER_VALIDATE_INT, ["options" => ["min_range" => 1, "max_range" => 5]]);
 
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['tuote_id'])) {
     } else {
         // Virheviestien asetus
         if (!$kayttajanimiValid) {
-            $_SESSION['error_message_user'] = 'Tarkista, että kaikki kentät on täytetty oikein. Käyttäjänimi saa sisältää vain kirjaimia, numeroita sekä alaviivoja (_) ja väliviivoja (-).';
+            $_SESSION['error_message_user'] = 'Tarkista, että kaikki kentät on täytetty oikein. Käyttäjänimi saa sisältää vain kirjaimia, numeroita sekä alaviivoja (_) ja väliviivoja (-) ja se saa olla 20 merkkiä pitkä';
         }
         if (!$kommenttiValid) {
             $_SESSION['error_message_comment'] = 'Tarkista, että kaikki kentät on täytetty oikein. Kommentti saa sisältää kirjaimia, numeroita sekä seuraavia erikoismerkkejä: . , ! : ? - + " ja se saa olla 500 merkkiä pitkä.';
