@@ -105,12 +105,18 @@
         product_description: kuvaus
     })
     .done(function(response) {
-    if (response.includes("on jo käytössä")) {
+    // Tarkistetaan kenttien tyhjyys ja muut validoinnit
+    if (nimi === '' || hinta === '' || kuvaus === '') {
+        alert("Kaikki kentät on täytettävä ennen muutosten tallentamista.");
+    }
+    else if (response.includes("on jo käytössä")) {
         alert("Tuotenimi '" + nimi + "' on jo käytössä. Valitse toinen nimi.");
-    } else if (response.trim() === "success") {
+    } 
+    else if (response.trim() === "success") {
         alert("Tuote muokattu onnistuneesti!");
-        // Tässä voit ohjata käyttäjän toiselle sivulle tai päivittää sivun sisältöä.
-    } else {
+        location.reload();
+    } 
+    else {
         // Tämä haara käsittelee muita mahdollisia virheitä.
         alert("Tuotetta ei voitu muokata. Virhe: " + response);
     }
