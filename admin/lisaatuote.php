@@ -26,12 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['message'] = "Virhe! Hinnan tulee olla positiivinen numero.";
         header('Location: ' . $_SERVER['PHP_SELF']);
         exit();
-    } elseif (!preg_match('/^[a-zA-Z0-9\sÄÖäö.,!]{1,500}+$/', $productDescription) ) {
+    } elseif (!preg_match('/^[a-zA-Z0-9\sÄÖäö.,!]{1,500}+$/', $productDescription)) {
         $_SESSION['message'] = "Virhe! Tarkista tuotteen kuvaus. Kuvauksen pituus ei saa ylittää 500 merkkiä ja se saa sisältää vain kirjaimia ja numeroita. Sallitut merkit ovat '.,!'";
         header('Location: ' . $_SERVER['PHP_SELF']);
         exit();
     }
-    
+
     // Tiedoston MIME-tyypin tarkistus
     $fileMimeType = mime_content_type($_FILES["product_image"]["tmp_name"]);
     if (!in_array($fileMimeType, ['image/jpeg', 'image/png', 'image/gif'])) {
@@ -39,40 +39,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header('Location: ' . $_SERVER['PHP_SELF']);
         exit();
     }
+
+    // Tiedostonimen puhdistaminen ennen tallentamista
+    $originalFileName = $_FILES["product_image"]["name"];
+    $cleanedFileName = preg_replace("/[^a-zA-Z0-9._-]/", "", $originalFileName);
+
+    // Generoi yksilöllinen tiedostonimi
+    $uniqueImageName = uniqid() . "-" . $cleanedFileName;
     
     // Tiedoston latauslogiikka
     $targetDir = "../uploads";
-    $uniqueImageName = uniqid() . basename($_FILES["product_image"]["name"]);
     $targetFile = $targetDir . DIRECTORY_SEPARATOR . $uniqueImageName;
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
     $allowedFileTypes = ['jpg', 'jpeg', 'png', 'gif'];
     $maxFileSize = 5000000; // 5MB
     $imageSize = $_FILES["product_image"]["size"];
 
-        if (!in_array($imageFileType, $allowedFileTypes) || $imageSize > $maxFileSize) {
-            $_SESSION['message'] = "Vain JPG, JPEG, PNG & GIF -tiedostot ovat sallittuja ja kuvan maksimikoko on 5MB.";
+    if (!in_array($imageFileType, $allowedFileTypes) || $imageSize > $maxFileSize) {
+        $_SESSION['message'] = "Vain JPG, JPEG, PNG & GIF -tiedostot ovat sallittuja ja kuvan maksimikoko on 5MB.";
+        header('Location: ' . $_SERVER['PHP_SELF']);
+        exit();
+    } elseif (move_uploaded_file($_FILES["product_image"]["tmp_name"], $targetFile)) {
+        try {
+            $sql = "INSERT INTO tuotteet (nimi, hinta, kuva, kuvaus) VALUES (?, ?, ?, ?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$productName, $productPrice, $uniqueImageName, $productDescription]);
+            $_SESSION['message'] = "Tuote lisätty onnistuneesti.";
             header('Location: ' . $_SERVER['PHP_SELF']);
             exit();
-        } elseif (move_uploaded_file($_FILES["product_image"]["tmp_name"], $targetFile)) {
-            try {
-                $sql = "INSERT INTO tuotteet (nimi, hinta, kuva, kuvaus) VALUES (?, ?, ?, ?)";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute([$productName, $productPrice, $uniqueImageName, $productDescription]);
-                $_SESSION['message'] = "Tuote lisätty onnistuneesti.";
-                header('Location: ' . $_SERVER['PHP_SELF']);
-                exit();
-            } catch (PDOException $e) {
-                $_SESSION['message'] = "Tietokantavirhe: " . $e->getMessage();
-                header('Location: ' . $_SERVER['PHP_SELF']);
-                exit();
-            }
-        } else {
-            $_SESSION['message'] = "Virhe ladattaessa kuvaa.";
+        } catch (PDOException $e) {
+            $_SESSION['message'] = "Tietokantavirhe: " . $e->getMessage();
             header('Location: ' . $_SERVER['PHP_SELF']);
             exit();
         }
+    } else {
+        $_SESSION['message'] = "Virhe ladattaessa kuvaa.";
+        header('Location: ' . $_SERVER['PHP_SELF']);
+        exit();
     }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fi">
