@@ -177,6 +177,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['tuote_id'])) {
             } else {
                 exit('Please provide the product ID.');
             }  
+            //onnistumisviestin lähettäminen
+             if (isset($_SESSION['feedback_message'])): ?>
+                <div class="feedback_message"><?php echo $_SESSION['feedback_message']; ?></div>
+                <?php unset($_SESSION['feedback_message']); ?>
+            <?php endif;
                 //error-viestien lähettäminen
              if (isset($_SESSION['error_message_user'])): ?>
                 <div class="error_message"><?php echo $_SESSION['error_message_user']; ?></div>
