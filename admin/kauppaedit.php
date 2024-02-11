@@ -27,10 +27,10 @@ include('config.php');
 
     <header class="site-header">
         <div class="site-header__wrapper">
-            <a href="admin.php" class="home-logo">LOHIKÄRMES</a>
+            <a href="admin.html" class="home-logo">LOHIKÄRMES</a>
             <div class="menu-icon" onclick="toggleMenu()" aria-label="Avaa valikko">☰</div>
             <nav class="nav">
-                <a href="admin.php">ADMIN</a>
+                <a href="admin.html">ADMIN</a>
                 <a href="kauppaedit.php"><b>TUOTELISTA</b></a>
                 <a href="lisaatuote.php">TUOTTEEN LISÄYS</a>
             </nav>
