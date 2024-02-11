@@ -5,6 +5,10 @@ body {
     padding: 0;
 }
 
+body.body_muokkaa {
+    height: 100vh;
+}
+
 
 /*Headeri*/
 

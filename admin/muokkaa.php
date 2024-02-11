@@ -24,7 +24,7 @@ include('config.php');
     </style>    
 </head>
 
-<body>
+<body class="body_muokkaa">
  
 <div class="grid-container">
     <div class="content">
