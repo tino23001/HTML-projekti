@@ -137,5 +137,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 </div>
 
+<script>
+      function toggleMenu() {
+   var nav = document.querySelector('nav');
+   var menuIcon = document.querySelector('.menu-icon');
+
+   if (nav.style.display === 'block') {
+       nav.style.display = 'none';
+       menuIcon.setAttribute('aria-label', 'Avaa valikko');
+   } else {
+       nav.style.display = 'block';
+       menuIcon.setAttribute('aria-label', 'Sulje valikko');
+   }
+}
+   </script>
+   
 </body>
 </html>
